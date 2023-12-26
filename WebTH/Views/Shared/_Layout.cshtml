@@ -1,44 +1,549 @@
 ﻿<!DOCTYPE html>
 <html>
 <head>
-    <meta charset="utf-8" />
-    <meta name="viewport" content="width=device-width, initial-scale=1.0">
-    <title>@ViewBag.Title - My ASP.NET Application</title>
-    @Styles.Render("~/Content/css")
+    <title>TH true MILK - True Happiness</title>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1" />
+
+    <link rel="icon" type="image/png" href="~/Content/assets/images/icons/Iconweb.png" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/vendor/bootstrap/css/bootstrap.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/fonts/font-awesome-4.7.0/css/font-awesome.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/fonts/themify/themify-icons.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/vendor/animate/animate.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/vendor/css-hamburgers/hamburgers.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/vendor/animsition/css/animsition.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/vendor/select2/select2.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/vendor/daterangepicker/daterangepicker.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/vendor/slick/slick.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/vendor/lightbox2/css/lightbox.min.css" />
+
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/util.css" />
+    <link rel="stylesheet" type="text/css" href="~/Content/assets/css/main.css" />
+    <link href="~/Content/PagedList.css" rel="stylesheet" />
+    <style>
+
+        .account {
+            display: inline-block;
+            position: relative;
+            min-width: 50px;
+            padding-left: 20px;
+            text-align: center;
+            vertical-align: middle;
+        }
+
+            .account > a {
+                display: block;
+                color: #fff;
+                font-weight: 400;
+                height: 50px;
+                line-height: 50px;
+                background: #eceff6;
+                border-radius: 50%;
+            }
+
+                .account > a > i {
+                    margin-left: 8px;
+                }
+
+            .account:hover .account_selection {
+                visibility: visible;
+                opacity: 1;
+                top: 100%;
+            }
+
+        .account_selection {
+            display: block;
+            position: absolute;
+            left: -40px;
+            top: 120%;
+            margin: 0;
+            width: 150px;
+            background: #FFFFFF;
+            visibility: hidden;
+            opacity: 0;
+            z-index: 1;
+            box-shadow: 0 0 25px rgba(63, 78, 100, 0.15);
+            -webkit-transition: opacity 0.3s ease;
+            -moz-transition: opacity 0.3s ease;
+            -ms-transition: opacity 0.3s ease;
+            -o-transition: opacity 0.3s ease;
+            transition: all 0.3s ease;
+            border-radius: 10%;
+        }
+
+            .account_selection li {
+                width: 100%;
+                padding: 15px;
+            }
+
+                .account_selection li:first-child {
+                    width: 100%;
+                    padding-bottom: 0;
+                }
+
+                .account_selection li:last-child {
+                    width: 100%;
+                    padding-top: 0;
+                }
+
+                .account_selection li a {
+                    width: 100%;
+                    display: block;
+                    color: #232530;
+                    border-bottom: solid 1px #dddddd;
+                    font-size: 14px;
+                    -webkit-transition: all 0.3s ease;
+                    -moz-transition: all 0.3s ease;
+                    -ms-transition: all 0.3s ease;
+                    -o-transition: all 0.3s ease;
+                    transition: all 0.3s ease;
+                }
+
+                    .account_selection li a:hover {
+                        color: #b5aec4;
+                    }
+
+                .account_selection li:last-child a {
+                    border-bottom: none;
+                }
+
+                .account_selection li a i {
+                    margin-right: 10px;
+                }
+    </style>
+    <script nonce="b22680b3-3377-4757-85df-d68c1fbb5933">
+        (function (w, d) {
+            !(function (a, b, c, d) {
+                a[c] = a[c] || {};
+                a[c].executed = [];
+                a.zaraz = { deferred: [], listeners: [] };
+                a.zaraz.q = [];
+                a.zaraz._f = function (e) {
+                    return async function () {
+                        var f = Array.prototype.slice.call(arguments);
+                        a.zaraz.q.push({ m: e, a: f });
+                    };
+                };
+                for (const g of ["track", "set", "debug"]) a.zaraz[g] = a.zaraz._f(g);
+                a.zaraz.init = () => {
+                    var h = b.getElementsByTagName(d)[0],
+                        i = b.createElement(d),
+                        j = b.getElementsByTagName("title")[0];
+                    j && (a[c].t = b.getElementsByTagName("title")[0].text);
+                    a[c].x = Math.random();
+                    a[c].w = a.screen.width;
+                    a[c].h = a.screen.height;
+                    a[c].j = a.innerHeight;
+                    a[c].e = a.innerWidth;
+                    a[c].l = a.location.href;
+                    a[c].r = b.referrer;
+                    a[c].k = a.screen.colorDepth;
+                    a[c].n = b.characterSet;
+                    a[c].o = new Date().getTimezoneOffset();
+                    if (a.dataLayer)
+                        for (const n of Object.entries(
+                            Object.entries(dataLayer).reduce(
+                                (o, p) => ({ ...o[1], ...p[1] }),
+                                {}
+                            )
+                        ))
+                            zaraz.set(n[0], n[1], { scope: "page" });
+                    a[c].q = [];
+                    for (; a.zaraz.q.length;) {
+                        const q = a.zaraz.q.shift();
+                        a[c].q.push(q);
+                    }
+                    i.defer = !0;
+                    for (const r of [localStorage, sessionStorage])
+                        Object.keys(r || {})
+                            .filter((t) => t.startsWith("_zaraz_"))
+                            .forEach((s) => {
+                                try {
+                                    a[c]["z_" + s.slice(7)] = JSON.parse(r.getItem(s));
+                                } catch {
+                                    a[c]["z_" + s.slice(7)] = r.getItem(s);
+                                }
+                            });
+                    i.referrerPolicy = "origin";
+                    i.src =
+                        "/cdn-cgi/zaraz/s.js?z=" +
+                        btoa(encodeURIComponent(JSON.stringify(a[c])));
+                    h.parentNode.insertBefore(i, h);
+                };
+                ["complete", "interactive"].includes(b.readyState)
+                    ? zaraz.init()
+                    : a.addEventListener("DOMContentLoaded", zaraz.init);
+            })(w, d, "zarazData", "script");
+        })(window, document);
+    </script>
+    @*@Styles.Render("~/Content/css")*@
     @Scripts.Render("~/bundles/modernizr")
+    <script type="text/javascript" src="~/Content/assets/vendor/jquery/jquery-3.2.1.min.js"></script>
+
+    @Scripts.Render("~/bundles/jqueryval")
+
 
 </head>
-<body>
-    <div class="navbar navbar-inverse navbar-fixed-top">
-        <div class="container">
-            <div class="navbar-header">
-                <button type="button" class="navbar-toggle" data-toggle="collapse" data-target=".navbar-collapse">
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                    <span class="icon-bar"></span>
-                </button>
-                @Html.ActionLink("Application name", "Index", "Home", new { area = "" }, new { @class = "navbar-brand" })
+<body class="animsition">
+
+    <header>
+        <div class="wrap-menu-header gradient1 trans-0-4">
+            <div class="container h-full">
+                <div class="wrap_header trans-0-3">
+                    <div class="logo">
+                        <a href="/">
+                            <img src="~/Content/assets/images/icons/logoTH.png" alt="IMG-LOGO"
+                                 data-logofixed="/Content/assets/images/icons/logoTH2.png" />
+                        </a>
+                    </div>
+
+                    <div class="wrap_menu p-l-45 p-l-0-xl">
+                        <nav class="menu">
+                            @Html.Action("MenuTop", "Menu")
+                        </nav>
+                    </div>
+
+                    <div class="social flex-w flex-l-m p-r-20">
+                        @*<a href=""><i class="fa fa-user m-l-21 m-r-10" aria-hidden="true"></i></a>*@
+
+                        <ul class="navbar_user">
+                            @if (!Request.IsAuthenticated)
+                            {
+                                <li class="account">
+                                    <a href="#"><i class="fa fa-user m-l-21 m-r-10" aria-hidden="true"></i></a>
+
+                                    <ul class="account_selection">
+                                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>Tên tài khoản</a></li>
+                                        <li><a href="/account/login"><i class="fa fa-sign-in" aria-hidden="true"></i>Đăng nhập</a></li>
+                                        <li><a href="/account/Register"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng ký</a></li>
+                                    </ul>
+                                </li>
+                            }
+                            else
+                            {
+                                <li class="account">
+                                    <a href="#"><i class="fa fa-user m-l-21 m-r-10" aria-hidden="true"></i></a>
+
+                                    <ul class="account_selection">
+                                        <li><a href="#"><i class="fa fa-user" aria-hidden="true"></i>@User.Identity.Name</a></li>
+                                        <li><a href="/"><i class="fa fa-sign-in" aria-hidden="true"></i>Hồ sơ</a></li>
+                                        <li><a href="javascript:document.getElementById('logOffForm').submit()"><i class="fa fa-user-plus" aria-hidden="true"></i>Đăng xuất</a></li>
+                                    </ul>
+                                </li>
+                            }
+
+                            <li class="checkout">
+                                <a href="/gio-hang">
+                                    <i class="fa fa-shopping-cart" aria-hidden="true"></i>
+                                    <span id="checkout_items" class="checkout_items">0</span>
+                                </a>
+                            </li>
+                        </ul>
+
+                        @if (Request.IsAuthenticated)
+
+                        {
+                            <div style="display:none;">
+
+                                @using (Html.BeginForm("LogOff", "Account", FormMethod.Post, new { @id = "logOffForm" }))
+                                {
+                                    @Html.AntiForgeryToken()
+                                }
+                            </div>
+
+                        }
+                        <button class="btn-show-sidebar m-l-33 trans-0-4"></button>
+                    </div>
+                </div>
             </div>
-            <div class="navbar-collapse collapse">
-                <ul class="nav navbar-nav">
-                    <li>@Html.ActionLink("Home", "Index", "Home")</li>
-                    <li>@Html.ActionLink("About", "About", "Home")</li>
-                    <li>@Html.ActionLink("Contact", "Contact", "Home")</li>
-                </ul>
-                @Html.Partial("_LoginPartial")
+        </div>
+    </header>
+
+
+
+
+    <aside class="sidebar trans-0-4">
+        <button class="btn-hide-sidebar ti-close color0-hov trans-0-4"></button>
+
+        <ul class="menu-sidebar p-t-95 p-b-70">
+            <li class="t-center m-b-13">
+                <a href="index.html" class="txt19">Trang chủ</a>
+            </li>
+            <li class="t-center m-b-13">
+                <a href="product.html" class="txt19">Sản phẩm</a>
+            </li>
+            <li class="t-center m-b-13">
+                <a href="shop.html" class="txt19">Cửa hàng</a>
+            </li>
+            <li class="t-center m-b-13">
+                <a href="about.html" class="txt19">Câu chuyện thật TH</a>
+            </li>
+            <li class="t-center m-b-13">
+                <a href="blog.html" class="txt19">Tư vấn</a>
+            </li>
+            <li class="t-center m-b-33">
+                <a href="contact.html" class="txt19">Liên hệ</a>
+            </li>
+
+        </ul>
+
+        <div class="gallery-sidebar t-center p-l-60 p-r-60 p-b-40">
+            <h4 class="txt20 m-b-33">Sản phẩm mới</h4>
+
+            <div class="wrap-gallery-sidebar flex-w">
+                <a class="item-gallery-sidebar wrap-pic-w" href="~/Content/assets/images/photo-gallery-1.jpg"
+                   data-lightbox="gallery-footer">
+                    <img src="~/Content/assets/images/photo-product-thumb-1.jpg" alt="PRODUCT" />
+                </a>
+                <a class="item-gallery-sidebar wrap-pic-w" href="~/Content/assets/images/photo-gallery-2.png"
+                   data-lightbox="gallery-footer">
+                    <img src="~/Content/assets/images/photo-product-thumb-2.png" alt="PRODUCT" />
+                </a>
+                <a class="item-gallery-sidebar wrap-pic-w" href="~/Content/assets/images/photo-gallery-3.jpg"
+                   data-lightbox="gallery-footer">
+                    <img src="~/Content/assets/images/photo-product-thumb-3.jpg" alt="PRODUCT" />
+                </a>
+                <a class="item-gallery-sidebar wrap-pic-w" href="~/Content/assets/images/photo-gallery-3.jpg"
+                   data-lightbox="gallery-footer">
+                    <img src="~/Content/assets/images/photo-product-thumb-3.jpg" alt="PRODUCT" />
+                </a>
+                <a class="item-gallery-sidebar wrap-pic-w" href="~/Content/assets/images/photo-gallery-1.jpg"
+                   data-lightbox="gallery-footer">
+                    <img src="~/Content/assets/images/photo-product-thumb-1.jpg" alt="PRODUCT" />
+                </a>
+                <a class="item-gallery-sidebar wrap-pic-w" href="~/Content/assets/images/photo-gallery-2.png"
+                   data-lightbox="gallery-footer">
+                    <img src="~/Content/assets/images/photo-product-thumb-2.png" alt="PRODUCT" />
+                </a>
+                <a class="item-gallery-sidebar wrap-pic-w" href="~/Content/assets/images/photo-gallery-1.jpg"
+                   data-lightbox="gallery-footer">
+                    <img src="~/Content/assets/images/photo-product-thumb-1.jpg" alt="PRODUCT" />
+                </a>
+                <a class="item-gallery-sidebar wrap-pic-w" href="~/Content/assets/images/photo-gallery-3.jpg"
+                   data-lightbox="gallery-footer">
+                    <img src="~/Content/assets/images/photo-product-thumb-3.jpg" alt="PRODUCT" />
+                </a>
+                <a class="item-gallery-sidebar wrap-pic-w" href="~/Content/assets/images/photo-gallery-2.png"
+                   data-lightbox="gallery-footer">
+                    <img src="~/Content/assets/images/photo-product-thumb-2.png" alt="PRODUCT" />
+                </a>
+            </div>
+        </div>
+    </aside>
+
+    @RenderBody()
+
+
+    @Html.Action("Partial_Subscribe", "Home")
+
+
+
+    <footer class="bg1">
+        <div class="container p-t-40 p-b-70">
+            <div class="row">
+                <div class="col-sm-6 col-md-4 p-t-50">
+                    <h4 class="txt13 m-b-33">Liên hệ với chúng tôi</h4>
+                    <ul class="m-b-70">
+                        <li class="txt14 m-b-14">
+                            <i class="fa fa-map-marker fs-16 dis-inline-block size19" aria-hidden="true"></i>
+                            166 Nguyễn Thái Học, P. Quang Trung, TP. Vinh, Nghệ An
+                        </li>
+                        <li class="txt14 m-b-14">
+                            <i class="fa fa-phone fs-16 dis-inline-block size19" aria-hidden="true"></i>
+                            1800 545 440
+                        </li>
+                        <li class="txt14 m-b-14">
+                            <i class="fa fa-envelope fs-13 dis-inline-block size19" aria-hidden="true"></i>
+                            <a href="#">chamsockhachhang@thmilk.vn</a>
+                        </li>
+                    </ul>
+
+                    <h4 class="txt13 m-b-32">Giờ mở cửa</h4>
+                    <ul>
+                        <li class="txt14">08:30 AM – 11:00 PM</li>
+                        <li class="txt14">Hàng ngày</li>
+                    </ul>
+                </div>
+                <div class="col-sm-6 col-md-4 p-t-50">
+                    <h4 class="txt13 m-b-33">Liên hệ khác</h4>
+                    <div class="m-b-25">
+                        <span class="fs-13 color2 m-r-5">
+                            <i class="fa fa-facebook" aria-hidden="true"></i>
+                        </span>
+                        <a href="https://www.facebook.com/thmilk" class="txt15"> THTrue </a>
+                        <p class="txt14 m-b-18">
+                            TH true mart là chuỗi cửa hàng bán lẻ của TH, chuyên cung cấp sản phẩm <br>
+                            <a href="https://www.facebook.com/thmilk" class="txt15"> https://facebook/THTrue </a>
+                        </p>
+                    </div>
+                    <div>
+                        <span class="fs-13 color2 m-r-5">
+                            <i class="fa fa-twitter" aria-hidden="true"></i>
+                        </span>
+                        <a href="https://twitter.com/THTrueMilk2" class="txt15"> THTrue </a>
+                        <p class="txt14 m-b-18">
+                            TH true mart là chuỗi cửa hàng bán lẻ của TH, chuyên cung cấp sản phẩm <br>
+                            <a href="https://twitter.com/THTrueMilk2" class="txt15"> https://twitter/THTrue </a>
+                        </p>
+                    </div>
+                    <div>
+                        <span class="fs-13 color2 m-r-5">
+                            <i class="fa fa-youtube" aria-hidden="true"></i>
+                        </span>
+                        <a href="https://www.youtube.com/THtrueMILKvn" class="txt15"> THTrue-Channel </a>
+                        <p class="txt14 m-b-18">
+                            TH true mart là chuỗi cửa hàng bán lẻ của TH, chuyên cung cấp sản phẩm <br>
+                            <a href="https://www.youtube.com/THtrueMILKvn" class="txt15"> https://youtube/THTrueChannel </a>
+                        </p>
+                    </div>
+                </div>
+                <div class="col-sm-6 col-md-4 p-t-50">
+                    <h4 class="txt13 m-b-38">Sản phẩm mới</h4>
+
+                    <div class="wrap-gallery-footer flex-w">
+                        <a class="item-gallery-footer wrap-pic-w" href="~/Content/assets/images/photo-gallery-1.jpg"
+                           data-lightbox="gallery-footer">
+                            <img src="~/Content/assets/images/photo-product-thumb-1.jpg" alt="PRODUCT" />
+                        </a>
+                        <a class="item-gallery-footer wrap-pic-w" href="~/Content/assets/images/photo-gallery-2.png"
+                           data-lightbox="gallery-footer">
+                            <img src="~/Content/assets/images/photo-product-thumb-2.png" alt="PRODUCT" />
+                        </a>
+                        <a class="item-gallery-footer wrap-pic-w" href="~/Content/assets/images/photo-gallery-3.jpg"
+                           data-lightbox="gallery-footer">
+                            <img src="~/Content/assets/images/photo-product-thumb-3.jpg" alt="PRODUCT" />
+                        </a>
+                        <a class="item-gallery-footer wrap-pic-w" href="~/Content/assets/images/photo-gallery-1.jpg"
+                           data-lightbox="gallery-footer">
+                            <img src="~/Content/assets/images/photo-product-thumb-1.jpg" alt="PRODUCT" />
+                        </a>
+                        <a class="item-gallery-footer wrap-pic-w" href="~/Content/assets/images/photo-gallery-2.png"
+                           data-lightbox="gallery-footer">
+                            <img src="~/Content/assets/images/photo-product-thumb-2.png" alt="PRODUCT" />
+                        </a>
+                        <a class="item-gallery-footer wrap-pic-w" href="~/Content/assets/images/photo-gallery-3.jpg"
+                           data-lightbox="gallery-footer">
+                            <img src="~/Content/assets/images/photo-product-thumb-3.jpg" alt="PRODUCT" />
+                        </a>
+                        <a class="item-gallery-footer wrap-pic-w" href="~/Content/assets/images/photo-gallery-1.jpg"
+                           data-lightbox="gallery-footer">
+                            <img src="~/Content/assets/images/photo-product-thumb-1.jpg" alt="PRODUCT" />
+                        </a>
+                        <a class="item-gallery-footer wrap-pic-w" href="~/Content/assets/images/photo-gallery-2.png"
+                           data-lightbox="gallery-footer">
+                            <img src="~/Content/assets/images/photo-product-thumb-2.png" alt="PRODUCT" />
+                        </a>
+                        <a class="item-gallery-footer wrap-pic-w" href="~/Content/assets/images/photo-gallery-3.jpg"
+                           data-lightbox="gallery-footer">
+                            <img src="~/Content/assets/images/photo-product-thumb-3.jpg" alt="PRODUCT" />
+                        </a>
+                        <a class="item-gallery-footer wrap-pic-w" href="~/Content/assets/images/photo-gallery-1.jpg"
+                           data-lightbox="gallery-footer">
+                            <img src="~/Content/assets/images/photo-product-thumb-1.jpg" alt="PRODUCT" />
+                        </a>
+                        <a class="item-gallery-footer wrap-pic-w" href="~/Content/assets/images/photo-gallery-2.png"
+                           data-lightbox="gallery-footer">
+                            <img src="~/Content/assets/images/photo-product-thumb-2.png" alt="PRODUCT" />
+                        </a>
+                        <a class="item-gallery-footer wrap-pic-w" href="~/Content/assets/images/photo-gallery-3.jpg"
+                           data-lightbox="gallery-footer">
+                            <img src="~/Content/assets/images/photo-product-thumb-3.jpg" alt="PRODUCT" />
+                        </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+        <div class="end-footer bg2">
+            <div class="container">
+                <div class="flex-sb-m flex-w p-t-22 p-b-22">
+                    <div class="p-t-5 p-b-5">
+                        <a href="https://www.youtube.com/THtrueMILKvn" class="fs-15 c-white"><i class="fa fa-youtube" aria-hidden="true"></i></a>
+                        <a href="https://www.facebook.com/thmilk" class="fs-15 c-white"><i class="fa fa-facebook m-l-18" aria-hidden="true"></i></a>
+                        <a href="https://twitter.com/THTrueMilk2" class="fs-15 c-white"><i class="fa fa-twitter m-l-18" aria-hidden="true"></i></a>
+                    </div>
+                    <div class="txt17 p-r-20 p-t-5 p-b-5">
+                        2023
+                        <a href="#" class="txt18"> TH True Company </a>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </footer>
+
+    <div class="btn-back-to-top bg0-hov" id="myBtn">
+        <span class="symbol-btn-back-to-top">
+            <i class="fa fa-angle-double-up" aria-hidden="true"></i>
+        </span>
+    </div>
+
+    <div id="dropDownSelect1"></div>
+
+    <div class="modal fade" id="modal-video-01" tabindex="-1" role="dialog" aria-hidden="true">
+        <div class="modal-dialog" role="document" data-dismiss="modal">
+            <div class="close-mo-video-01 trans-0-4" data-dismiss="modal" aria-label="Close">
+                &times;
+            </div>
+            <div class="wrap-video-mo-01">
+                <div class="w-full wrap-pic-w op-0-0">
+                    <img src="images/icons/video-16-9.jpg" alt="IMG" />
+                </div>
+                <div class="video-mo-01">
+                    <iframe src="https://www.youtube.com/embed/Mtpv1_y6_Pw?rel=0&amp;showinfo=0"
+                            allowfullscreen></iframe>
+                </div>
             </div>
         </div>
     </div>
-    <div class="container body-content">
-        @RenderBody()
-        <hr />
-        <footer>
-            <p>&copy; @DateTime.Now.Year - My ASP.NET Application</p>
-        </footer>
-    </div>
 
-    @Scripts.Render("~/bundles/jquery")
-    @Scripts.Render("~/bundles/bootstrap")
+
+    @*@Scripts.Render("~/bundles/jquery")*@
+    <script data-cfasync="false" src="~/Content/assets/cdn-cgi/scripts/5c5dd728/cloudflare-static/email-decode.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/assets/vendor/animsition/js/animsition.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/assets/vendor/bootstrap/js/popper.js"></script>
+    <script type="text/javascript" src="~/Content/assets/vendor/bootstrap/js/bootstrap.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/assets/vendor/select2/select2.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/assets/vendor/daterangepicker/moment.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/vendor/daterangepicker/daterangepicker.js"></script>
+
+    <script type="text/javascript" src="~/Content/assets/vendor/slick/slick.min.js"></script>
+    <script type="text/javascript" src="~/Content/assets/js/slick-custom.js"></script>
+
+    <script type="text/javascript" src="~/Content/assets/vendor/parallax100/parallax100.js"></script>
+    <script type="text/javascript">
+        $(".parallax100").parallax100();
+    </script>
+
+    <script type="text/javascript" src="~/Content/assets/vendor/countdowntime/countdowntime.js"></script>
+
+    <script type="text/javascript" src="~/Content/assets/vendor/lightbox2/js/lightbox.min.js"></script>
+
+    <script type="text/javascript" src="~/Content/assets/vendor/smoothscrolling/smooth-scrolling.js"></script>
+
+    <script src="~/Content/assets/js/main.js"></script>
+    <script defer
+            src="https://static.cloudflareinsights.com/beacon.min.js/v8b253dfea2ab4077af8c6f58422dfbfd1689876627854"
+            integrity="sha512-bjgnUKX4azu3dLTVtie9u6TKqgx29RBwfj3QXYt5EKfWM/9hPSAI/4qcV5NACjwAo8UtTeWefx6Zq5PHcMm7Tg=="
+            data-cf-beacon='{"rayId":"812d0139ca6d8b4b","token":"cd0b4b3a733644fc843ef0b185f98241","version":"2023.8.0","si":100}'
+            crossorigin="anonymous"></script>
+    <script src="~/Scripts/jsShopping.js"></script>
+    <script src="~/Scripts/jquery.validate.min.js"></script>
+    <script src="~/Scripts/jquery.validate.unobtrusive.min.js"></script>
+    <script src="~/Scripts/jquery.unobtrusive-ajax.min.js"></script>
+    @*@Scripts.Render("~/bundles/bootstrap")*@
     @RenderSection("scripts", required: false)
 </body>
 </html>

@@ -121,3 +121,13 @@ D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\W
 D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.UpdateProductCategory.resources
 D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.update1206.resources
 D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.Update12061.resources
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.UpdatePayment.resources
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.Updateadress.resources
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.Createtbthongke.resources
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.Createtbthongke2.resources
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\bin\Dapper.dll
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\bin\Dapper.xml
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.UpdateEmail.resources
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.updateoder.resources
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.updateorder2.resources
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.updatesubcribe.resources

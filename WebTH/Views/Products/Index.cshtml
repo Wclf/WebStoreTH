@@ -1,0 +1,27 @@
+﻿
+@{
+    ViewBag.Title = "Cửa hàng danh sách sản phẩm";
+}
+
+<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15"
+         style="background-image: url(/Content/assets/images/bg-cover-video-2.jpg)">
+    <h2 class="tit6 t-center">Cửa hàng</h2>
+</section>
+
+<div class="section-gallery">
+    @Html.Action("Refresh", "Home")
+</div>
+
+<div class="section-gallery p-t-118 p-b-100">
+    @Html.Action("MenuProduct", "Menu")
+</div>
+
+
+
+
+
+
+
+@section scripts {
+    <script type="text/javascript" src="/Content/assets/vendor/isotope/isotope.pkgd.min.js"></script>
+}

@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebTH.Models.EF.ProductCategory>
+
+@if (Model != null && Model.Any())
+{
+    <section class="section-ourmenu bg2-pattern p-t-115 p-b-120">
+        <div class="container">
+            <div class="title-section-ourmenu t-center m-b-22">
+                <span class="tit2-copy t-center"> Khám phá </span>
+                <h3 class="tit5 t-center m-t-2">Sản phẩm</h3>
+            </div>
+            <div class="row">
+                @foreach (var item in Model)
+                {
+                    <div class="col-md-4">
+                        <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+                            <img src="@item.Icon" alt="IMG-MENU" />
+
+                            <a href="@item.Alias" class="btn2 flex-c-m txt5 ab-c-m size7">
+                                @item.Title
+                            </a>
+                        </div>
+                    </div>
+                }
+
+                @*<div class="col-md-4">
+                    <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+                        <img src="images/our-product-4.jpg" alt="IMG-MENU" />
+
+                        <a href="#" class="btn2 flex-c-m txt5 ab-c-m size8">
+                            Phô mai
+                        </a>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="item-ourmenu bo-rad-10 hov-img-zoom pos-relative m-t-30">
+                        <img src="images/our-product-6.jpg" alt="IMG-MENU" />
+
+                        <a href="#" class="btn2 flex-c-m txt5 ab-c-m size9">
+                            Đồ ăn
+                        </a>
+                    </div>
+                </div>*@
+            </div>
+        </div>
+    </section>
+}

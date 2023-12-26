@@ -8,6 +8,8 @@ using WebTH.Models.EF;
 
 namespace WebTH.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin")]
+
     public class CategoryController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();

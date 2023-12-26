@@ -1,0 +1,217 @@
+﻿@model WebTH.Models.EF.Product
+@{
+    ViewBag.Title = "Detail";
+}
+
+<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15"
+         style="background-image: url(/Content/assets/images/bg-title-page-3.jpg)">
+    <h2 class="tit6 t-center"> Chi tiết sản phẩm </h2>
+</section>
+
+<section>
+    <div class="bread-crumb bo5-b p-t-17 p-b-17">
+        <div class="container">
+            <a href="/" class="txt27"> Trang chủ </a>
+            <span class="txt29 m-l-10 m-r-10">/</span>
+            <a href="/products" class="txt27"> Cửa hàng </a>
+            <span class="txt29 m-l-10 m-r-10">/</span>
+            <span class="txt29"> @Model.Title </span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-9">
+                <div class="p-t-80 p-b-124 bo5-r p-r-50 h-full p-r-0-md bo-none-md">
+                    <div class="blo4 p-b-63">
+                        @if (Model.ProductImage != null && Model.ProductImage.Any())
+                        {
+                            <div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative">
+                                @foreach (var item in Model.ProductImage)
+                                {
+                                    <img src="@Model.ProductImage.FirstOrDefault(x=>x.IsDefault).Image" alt="IMG-BLOG" />
+
+                                }
+                            </div>
+
+                        }
+
+                    <div class="text-blo4 p-t-33">
+                        <h4 class="p-b-16" ">
+                            <a href="#" class="tit9">@Model.Title</a>
+                        </h4>
+                        <p>@Model.Description</p>
+                        <p>Lượt xem: <b>@Model.ViewCount</b></p>
+                        @if (Model.PriceSale > 0)
+                        {
+
+                            <h3 class="tit13 p-b-16">
+                                <span style="color: red;">@WebTH.Common.Common.FormatNumber(Model.PriceSale, 0)</span>
+                                <span style="color: #5e5a59; font-size: 16px;"><strike>@WebTH.Common.Common.FormatNumber(Model.Price, 0)</strike></span>
+                            </h3>
+                        }
+                        else
+                        {
+                            <h3 class="tit13 p-b-16">
+                                <span style="color: red;">@WebTH.Common.Common.FormatNumber(Model.Price, 0)</span>
+                            </h3>
+                        }
+                        <div class="quantity d-flex flex-column flex-sm-row align-items-sm-center p-b-16">
+                            <span>Số lượng</span>
+                            <div class="quantity_selector">
+                                <span class="minus"><i class="fa fa-minus" aria-hidden="true"></i></span>
+                                <span id="quantity_value">1</span>
+                                <span class="plus"><i class="fa fa-plus" aria-hidden="true"></i></span>
+                            </div>
+                            <div class="red_button add_to_cart_button"><a href="#" class="btnAddToCart" data-id="@Model.Id">Thêm vào giỏ</a></div>
+
+                        </div>
+                        <div class="product attribute overview">
+                            <div class="value" itemprop="description">
+                                <ul class="pdp-attribute pdp-attribute-mobile">
+                                    <li>
+                                        <label>Thương hiệu</label><span>TH True</span>
+                                    </li>
+                                    <li>
+                                        <label>Xuất xứ thương hiệu</label><span>Việt Nam</span>
+                                    </li>
+                                    <li>
+                                        <label>Nơi sản xuất</label><span>Việt Nam</span>
+                                    </li>
+                                    <li>
+                                        <label>Thành phần</label><span>
+                                            Làm từ những thành phần tự nhiên trong thiên nhiên đảm bảo an toàn vệ sinh
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <label>Hạn sử dụng</label><span>
+                                            240 ngày kể từ ngày sản
+                                            xuất
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <label>Hướng dẫn sử dụng</label><span>
+                                            Hạn sử kĩ trên bao bì
+                                            Sau khi mở hộp, bảo quản lạnh ở 4 độ C – 10 độ C và sử
+                                            dụng hết trong vòng 24 giờ
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <label>Hướng dẫn bảo quản</label><span>
+                                            Bảo quản nơi khô ráo,
+                                            thoáng mát, tránh ánh nắng, mùi mạnh và các loại hóa
+                                            chất.
+                                        </span>
+                                    </li>
+                                    <li>
+                                        <label>Quy cách đóng gói</label><span>
+                                            Đóng gói cẩn thận
+                                        </span>
+                                    </li>
+                                </ul>
+                            </div>
+                        </div>
+                    </div>
+                    </div>
+
+                    <div class="leave-comment p-t-10">
+                        <h4 class="txt33 p-b-14">Thông tin chi tiết</h4>
+                        <p>
+                            @Html.Raw(Model.Detail)
+                        </p>
+
+                    </div>
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="sidebar2 p-t-80 p-b-80 p-l-20 p-l-0-md p-t-0-md">
+                    <div class="search-sidebar2 size12 bo2 pos-relative">
+                        <input class="input-search-sidebar2 txt10 p-l-20 p-r-55" type="text" name="search"
+                               placeholder="Search" />
+                        <button class="btn-search-sidebar2 flex-c-m fa fa-search     trans-0-4"></button>
+                    </div>
+
+                    <div class="popular">
+                        <h4 class="txt33 p-b-35 p-t-58">Sản phẩm nổi</h4>
+                        <ul>
+                            <li class="flex-w m-b-25">
+                                <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                                    <a href="#">
+                                        <img src="~/Content/assets/images/blog-8.jpg" alt="IMG-BLOG" />
+
+                                    </a>
+                                </div>
+                                <div class="size28">
+                                    <a href="#" class="dis-block txt28 m-b-8">
+                                        Sản phẩm nổi 1
+                                    </a>
+                                    <span class="txt14"> TH True Milk </span>
+                                </div>
+                            </li>
+                            <li class="flex-w m-b-25">
+                                <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                                    <a href="#">
+                                        <img src="~/Content/assets/images/blog-9.jpg" alt="IMG-BLOG" />
+                                    </a>
+                                </div>
+                                <div class="size28">
+                                    <a href="#" class="dis-block txt28 m-b-8">
+                                        Sản phẩm nổi 1
+                                    </a>
+                                    <span class="txt14"> TH True Milk </span>
+                                </div>
+                            </li>
+                            <li class="flex-w m-b-25">
+                                <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                                    <a href="#">
+                                        <img src="~/Content/assets/images/blog-9.jpg" alt="IMG-BLOG" />
+                                    </a>
+                                </div>
+                                <div class="size28">
+                                    <a href="#" class="dis-block txt28 m-b-8">
+                                        Sản phẩm nổi 1
+
+                                    </a>
+                                    <span class="txt14"> TH True Milk </span>
+                                </div>
+                            </li>
+                            <li class="flex-w m-b-25">
+                                <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                                    <a href="#">
+                                        <img src="~/Content/assets/images/blog-9.jpg" alt="IMG-BLOG" />
+                                    </a>
+                                </div>
+                                <div class="size28">
+                                    <a href="#" class="dis-block txt28 m-b-8">
+                                        Sản phẩm nổi 1
+
+                                    </a>
+                                    <span class="txt14"> TH True Milk </span>
+                                </div>
+                            </li>
+                            <li class="flex-w m-b-25">
+                                <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                                    <a href="#">
+                                        <img src="~/Content/assets/images/blog-9.jpg" alt="IMG-BLOG" />
+                                    </a>
+                                </div>
+                                <div class="size28">
+                                    <a href="#" class="dis-block txt28 m-b-8">
+                                        Sản phẩm nổi 1
+
+                                    </a>
+                                    <span class="txt14"> TH True Milk </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>
+
+
+@section scripts {
+    <script type="text/javascript" src="~/Content/assets/js/shop-detail.js"></script>
+}
+

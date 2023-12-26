@@ -1,0 +1,32 @@
+﻿@model IEnumerable<WebTH.Models.EF.Category>
+
+@if (Model != null && Model.Any()) {
+<ul class="main_menu">
+    @foreach (var item in Model)
+    {
+        if(item.Alias.Equals("trang-chu"))
+        {
+            item.Alias = "";
+        }
+        <li>
+            <a href="/@item.Alias ">@item.Title</a>
+        </li>
+    }
+
+    @*<li>
+        <a href="product.html">Sản Phẩm</a>
+    </li>
+    <li>
+        <a href="shop.html">Cửa Hàng</a>
+    </li>
+    <li>
+        <a href="about.html">Câu chuyện thật TH</a>
+    </li>
+    <li>
+        <a href="blog.html">Tư vấn</a>
+    </li>
+    <li>
+        <a href="contact.html">Liên hệ</a>
+    </li>*@
+</ul>
+}

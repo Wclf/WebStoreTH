@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebTH.Models.EF.Product>
+
+@if (Model != null && Model.Any())
+{
+    foreach (var item in Model)
+    {
+        var strImage = "";
+        var img = item.ProductImage.FirstOrDefault(x => x.IsDefault);
+        if(img != null)
+        {
+            strImage = img.Image;
+        }
+        <div class="item-gallery isotope-item bo-rad-10 hov-img-zoom juice pos-relative @item.ProductCategory.Alias">
+            <img src="@strImage" alt="@item.Title" />
+            <a href="/chi-tiet/@item.Alias-p@(item.Id)">
+                <div class="bgTH flex-sb-m shop-blo1">
+                    <h1 class="txt37 m-b-0">@item.Title</h1>
+                    @if (item.PriceSale > 0)
+                    {
+                        <p class="txt36">@WebTH.Common.Common.FormatNumber(item.PriceSale, 0)<span style="color: #d92f24"><strike>@WebTH.Common.Common.FormatNumber(item.Price, 0)</strike></span></p>
+
+                    }
+                    else
+                    {
+                        <p class="txt36">@WebTH.Common.Common.FormatNumber(item.Price, 0)</p>
+
+                    }
+                </div>
+            </a>
+            <div class="bgTH cart-blo1">
+                <a href="" class="btnAddToCart" data-id="@item.Id"><i class="fa fa-cart-plus fs-24 c-white" aria-hidden="true"></i></a>
+            </div>
+        </div>
+    }
+}

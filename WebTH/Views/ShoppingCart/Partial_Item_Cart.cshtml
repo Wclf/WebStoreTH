@@ -1,0 +1,78 @@
+﻿@model IEnumerable<WebTH.Models.ShoppingCartItem>
+@using WebTH.Common
+<table class="table">
+    <tr class="text-center">
+        <th class="text-center">STT</th>
+        <th class="text-center">Ảnh sản phẩm</th>
+        <th class="text-center">Tên sản phẩm</th>
+        <th class="text-center">Danh mục</th>
+        <th class="text-center">Giá</th>
+        <th class="text-center" style="width: 100px">Số lượng</th>
+        <th class="text-center">Thành tiền</th>
+        <th style="width: 200px;">
+
+        </th>
+    </tr>
+    @if (Model != null && Model.Any())
+    {
+
+        var i = 0;
+        var tongtien = decimal.Zero;
+
+        foreach (var item in Model)
+        {
+            tongtien += item.TotalPrice;
+            <tr class="text-center" id="trow_@item.ProductId">
+                <td>@(i+1)</td>
+                <td><img src="@item.ProductImg" width="60" /></td>
+                <td>
+                    <a href="/chi-tiet/@item.Alias-p@(item.ProductId)">
+                        @item.ProductName
+                    </a>
+                </td>
+                <td>@item.CategoryName</td>
+                <td>@Common.FormatNumber(item.Price, 0)</td>
+                <td><input type="number" class="form-control " id="Quantity_@item.ProductId" value="@item.Quantity" /></td>
+                <th class="text-center">@Common.FormatNumber(item.TotalPrice, 2)</th>
+
+
+                <td>
+                    <a href="#" data-id="@item.ProductId" class="btn btn-sm btn-danger btnDelete">Xóa</a>
+                    <a href="#" data-id="@item.ProductId" class="btn btn-sm btn-success btnUpdate">Cập nhật</a>
+                </td>
+
+
+
+            </tr>
+            i++;
+        }
+
+        <tr>
+            <th colspan="6" class="text-right">Tổng: </th>
+            <th class="text-center">@Common.FormatNumber(tongtien, 0)</th>
+            <th></th>
+        </tr>
+
+        <tr>
+            <th colspan="6" class="text-right"></th>
+            <th></th>
+
+                <th class="text-center">
+                    <a href="#" class="btn btn-sm btn-danger btnDeleteAll">Xóa</a>
+                    <a href="/thanh-toan" class="btn btn-sm btn-success">Thanh toán</a>
+
+                </th>
+
+
+        </tr>
+
+    }
+    else
+    {
+        <tr>
+            <th colspan="7">
+                Không có sản phẩm trong giỏ hàng!!
+            </th>
+        </tr>
+    }
+</table>

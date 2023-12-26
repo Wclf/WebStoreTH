@@ -1,0 +1,35 @@
+﻿@model IEnumerable<WebTH.Models.ShoppingCartItem>
+@using WebTH.Common
+
+@if (Model != null && Model.Any())
+{
+    <h3 style="font-weight:bold;">Giỏ hàng<span style="float:right;">@Model.Count()</span></h3>
+
+    var i = 0;
+    var tongtien = decimal.Zero;
+    <table class="table">
+        @foreach (var item in Model)
+        {
+            tongtien += item.TotalPrice;
+            <tr>
+                <td>@item.ProductName</td>
+                <td>@Common.FormatNumber(item.Price, 0)</td>
+
+            </tr>
+
+        }
+        <tr>
+            <td>Tổng tiền</td>
+
+            <td>@Common.FormatNumber(tongtien, 0)</td>
+        </tr>
+    </table>
+
+
+}
+else
+{
+
+}
+
+

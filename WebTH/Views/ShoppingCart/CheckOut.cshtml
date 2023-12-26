@@ -1,0 +1,85 @@
+﻿@{
+    ViewBag.Title = "Thanh toán";
+}
+
+<style>
+    .error {
+        color:red;
+    }
+</style>
+
+<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15"
+         style="background-image: url(/Content/assets/images/bg-cover-video-2.jpg)">
+    <h2 class="tit6 t-center">Thanh toán</h2>
+</section>
+
+
+<div class="container p-t-160 p-b-80 p-l-15 p-r-15 " id="load_data">
+    <div class="row">
+        <div class="col-md-12 text-center m-b-18">
+            <h1 class="" style="font-size:80px; font-weight:bold;">Thanh toán</h1>
+            <p>Bạn hãy kiểm tra lại thông tin đơn hàng cho chính xác!</p>
+        </div>
+    </div>
+    <hr />
+    @if (ViewBag.CheckCart != null)
+    {
+        <div class="row">
+            <div id="show_success"></div>
+            <div class="col-md-9">
+                @Html.Action("Partial_CheckOut", "Shoppingcart")
+
+            </div>
+            <div class="col-md-3 m-b-10">
+                @Html.Action("Partial_Item_ThanhToan", "ShoppingCart")
+            </div>
+
+        </div>
+
+    }
+    else
+    {
+        <div>
+            Bạn chưa có sản phẩm nào . Vui lòng quay lại trang <a href="/cua-hang"><u>Cửa hàng</u></a> để mua hàng.
+        </div>
+    }
+</div>
+
+
+
+@section scripts {
+    <script>
+        function Onfailure(rs) {
+            if (!rs.Success) {
+                $('#show_success').html("Bạn mua hàng thất bại! Vui lòng thử lại");
+            }
+        }
+        $(document).ready(function () {
+            $('#myForm').validate({
+                rules: {
+                    'CustomerName': {
+                        required:true
+                    },
+                    'Phone': {
+                        required:true
+                    },
+                    'Address': {
+                        required: true
+                    },
+                    'Email': {
+                        required: true,
+                        email:true
+                    }
+                },
+                messages: {
+                    'CustomerName': 'Bạn không để trống ô này',
+                    'Phone': 'Bạn không để trống ô này',
+                    'Address': 'Bạn không để trống ô này',
+                    'Email': 'Email chưa hợp lệ',
+
+
+                }
+            });
+        });
+    </script>
+    }

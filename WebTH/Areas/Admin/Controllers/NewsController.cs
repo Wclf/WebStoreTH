@@ -9,6 +9,8 @@ using WebTH.Models.EF;
 
 namespace WebTH.Areas.Admin.Controllers
 {
+    [Authorize(Roles = "Admin,Employee")]
+
     public class NewsController : Controller
     {
         ApplicationDbContext db = new ApplicationDbContext();
@@ -44,7 +46,7 @@ namespace WebTH.Areas.Admin.Controllers
             if(ModelState.IsValid)
             {
                 model.CreatedDate = DateTime.Now;
-                model.CategoryId = 3;
+                model.CategoryId = 2;
                 model.ModifiedDate = DateTime.Now;
                 model.Alias = WebTH.Models.Common.Filter.FilterChar(model.Title);
                 db.News.Add(model);

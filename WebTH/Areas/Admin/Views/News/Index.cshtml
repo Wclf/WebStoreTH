@@ -2,7 +2,7 @@
 @using PagedList
 @using PagedList.Mvc
 @{
-    ViewBag.Title = "Danh sách tin tức";
+    ViewBag.Title = "Danh sách tư vấn";
 
     Layout = "~/Areas/Admin/Views/Shared/_Layout.cshtml";
 }
@@ -14,10 +14,10 @@
             <a class="nav-link" data-widget="pushmenu" href="#" role="button"><i class="fas fa-bars"></i></a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/admin" class="nav-link">Trang chủ</a>
+            <a href="/admin/home" class="nav-link">Trang chủ</a>
         </li>
         <li class="nav-item d-none d-sm-inline-block">
-            <a href="/admin/category" class="nav-link">@ViewBag.Title</a>
+            <a href="/admin/news" class="nav-link">@ViewBag.Title</a>
         </li>
     </ul>
 }
@@ -44,7 +44,7 @@
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
-            <h3 class="card-title">Danh sách @ViewBag.Title</h3>
+            <h3 class="card-title"> @ViewBag.Title</h3>
 
             <div class="card-tools">
                 <a href="/admin/news/add" class="btn btn-primary">Thêm mới</a>
@@ -57,7 +57,7 @@
                     @using (Html.BeginForm("index", "News", FormMethod.Get, new { }))
                     {
                         <div class="input-group input-group-sm">
-                            @Html.TextBox("Searchtext", new { @class = "form-control"})
+                            @Html.TextBox("Searchtext",null, new { @class = "form-control"})
                             @*<input type="text" name="searchtext" class="form-control" />*@
                             <span class="input-group-append">
                                 <button type="submit" class="btn btn-info btn-flat">Tìm kiếm</button>

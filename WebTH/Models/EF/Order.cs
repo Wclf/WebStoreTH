@@ -21,19 +21,25 @@ namespace WebTH.Models.EF
         [Required]
         public string Code { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Tên khách hàng không để trống")]
         public string CustomerName { get; set; }
 
-        [Required]
+        [Required(ErrorMessage ="Số điện thoại không để trống")]
         public string Phone { get; set; }
 
-        [Required]
-        public string Adress { get; set; }
+        [Required(ErrorMessage ="Địa chỉ không để trống")]
+        public string Address { get; set; }
+
+        public string Email { get; set; }
+
 
         public decimal TotalAmount { get; set; }
 
         public int Quantity { get; set; }
 
-        public ICollection<OrderDetail> OrderDetails { get; set; }
+        public int TypePayment  { get; set; }
+
+
+        public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }
 }

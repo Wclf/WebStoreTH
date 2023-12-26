@@ -1,0 +1,25 @@
+﻿@model WebTH.Models.ThongKeModel
+
+@if (Model != null)
+{
+    <div class="thongke">
+        <table class="table table-responsive table-primary" >
+            <tr>
+                <th>Hôm nay</th>
+                <td>@Model.HomNay</td>
+                <th>Hôm qua</th>
+                <td>@Model.HomQua</td>
+                <th>Tuần nay</th>
+                <td>@Model.TuanNay</td>
+                <th>Tuần trước</th>
+                <td>@Model.TuanTruoc</td>
+                <th>Tháng này</th>
+                <td>@Model.ThangNay</td>
+                <th>Tháng trước</th>
+                <td>@Model.ThangTruoc</td>
+                <th>Số người online</th>
+                <td>@ViewBag.Visitors_online</td>
+
+        </table>
+    </div>
+}

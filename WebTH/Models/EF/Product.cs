@@ -43,6 +43,8 @@ namespace WebTH.Models.EF
 
         public int Quantity { get; set; }
 
+        public int ViewCount { get; set; }
+
         public bool IsHome { get; set; }
 
         public bool IsSale { get; set; }

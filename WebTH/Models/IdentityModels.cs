@@ -14,6 +14,7 @@ namespace WebTH.Models
 
         public string Phone { get; set; }
 
+
         public async Task<ClaimsIdentity> GenerateUserIdentityAsync(UserManager<ApplicationUser> manager)
         {
             // Note the authenticationType must match the one defined in CookieAuthenticationOptions.AuthenticationType
@@ -30,6 +31,8 @@ namespace WebTH.Models
         {
         }
 
+        public DbSet<ThongKe> ThongKes { get; set; }
+
         public DbSet<Category> Categories { get; set; }
 
         public DbSet<Adv> Advs { get; set; }
@@ -43,6 +46,8 @@ namespace WebTH.Models
         public DbSet<ProductCategory> ProductCategories { get; set; }
 
         public DbSet<Product> Products { get; set; }
+        
+        public DbSet<ProductImage> ProductImages { get; set; }
 
         public DbSet<Contact> Contacts { get; set; }
 
