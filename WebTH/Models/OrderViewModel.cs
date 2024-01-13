@@ -19,6 +19,7 @@ namespace WebTH.Models
 
         public string Email { get; set; }
 
+        public string CustomerId { get; set; }
 
         public int TypePayment { get; set; }
 

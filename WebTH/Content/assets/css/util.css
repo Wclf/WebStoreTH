@@ -759,7 +759,23 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	font-family: Montserrat;
 	font-weight: 400;
 	font-size: 13px;
-	color: #999999;
+	color: #000;
+	line-height: 1.7;
+}
+
+.txt14-copy {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 13px;
+	color: #ec1d25;
+	line-height: 1.7;
+}
+
+.txt14-copy2 {
+	font-family: Montserrat;
+	font-weight: 400;
+	font-size: 13px;
+	color: #000;
 	line-height: 1.7;
 }
 

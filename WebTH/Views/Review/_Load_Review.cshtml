@@ -1,0 +1,90 @@
+﻿@model IEnumerable<WebTH.Models.EF.ReviewProduct>
+
+
+<h4 class="txt33 p-b-35 p-t-58">Đánh giá (@ViewBag.Count)</h4>
+
+
+
+@if (Model != null && Model.Any())
+{
+<ul>
+    @foreach (var item in Model)
+    {
+        <li class="flex-w m-b-25">
+            <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                <a href="#">
+                    <img src="~/Content/assets/images/avatar-1.jpg" alt="IMG-BLOG" />
+
+                </a>
+            </div>
+            <div class="size28">
+                <div class="txt14-copy"> @item.CreatedDate.ToString("dd MM yyyy") </div>
+                <div href="#" class="dis-block txt28 m-b-8">
+                    @item.FullName
+                </div>
+
+
+                <span class="txt14-copy2"> @item.Content </span>
+            </div>
+        </li>
+    }
+
+    @*<li class="flex-w m-b-25">
+            <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                <a href="#">
+                    <img src="~/Content/assets/images/blog-9.jpg" alt="IMG-BLOG" />
+                </a>
+            </div>
+            <div class="size28">
+                <a href="#" class="dis-block txt28 m-b-8">
+                    Sản phẩm nổi 1
+                </a>
+                <span class="txt14"> TH True Milk </span>
+            </div>
+        </li>
+        <li class="flex-w m-b-25">
+            <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                <a href="#">
+                    <img src="~/Content/assets/images/blog-9.jpg" alt="IMG-BLOG" />
+                </a>
+            </div>
+            <div class="size28">
+                <a href="#" class="dis-block txt28 m-b-8">
+                    Sản phẩm nổi 1
+
+                </a>
+                <span class="txt14"> TH True Milk </span>
+            </div>
+        </li>
+        <li class="flex-w m-b-25">
+            <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                <a href="#">
+                    <img src="~/Content/assets/images/blog-9.jpg" alt="IMG-BLOG" />
+                </a>
+            </div>
+            <div class="size28">
+                <a href="#" class="dis-block txt28 m-b-8">
+                    Sản phẩm nổi 1
+
+                </a>
+                <span class="txt14"> TH True Milk </span>
+            </div>
+        </li>
+        <li class="flex-w m-b-25">
+            <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                <a href="#">
+                    <img src="~/Content/assets/images/blog-9.jpg" alt="IMG-BLOG" />
+                </a>
+            </div>
+            <div class="size28">
+                <a href="#" class="dis-block txt28 m-b-8">
+                    Sản phẩm nổi 1
+
+                </a>
+                <span class="txt14"> TH True Milk </span>
+            </div>
+        </li>*@
+</ul>
+
+}
+

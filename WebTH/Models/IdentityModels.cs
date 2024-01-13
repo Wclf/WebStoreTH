@@ -30,6 +30,9 @@ namespace WebTH.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
+        
+
+        public DbSet<ReviewProduct> Reviews { get; set; }
 
         public DbSet<ThongKe> ThongKes { get; set; }
 

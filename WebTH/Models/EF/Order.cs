@@ -39,6 +39,8 @@ namespace WebTH.Models.EF
 
         public int TypePayment  { get; set; }
 
+        public string CustomerId { get; set; }
+
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
     }

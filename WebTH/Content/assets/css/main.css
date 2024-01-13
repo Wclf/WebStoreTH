@@ -1678,3 +1678,20 @@ body {padding-right: 0px !important;}
         .account_selection li a i {
             margin-right: 10px;
         }
+
+
+.user_star_rating {
+    display: inline-block;
+    margin-left: 18px;
+}
+
+    .user_star_rating li {
+        display: inline-block;
+        margin-right: -3px;
+        cursor: pointer;
+    }
+
+        .user_star_rating li i {
+            color: #f5c136;
+            font-size: 18px;
+        }

@@ -9,12 +9,14 @@ using System.Web.Mvc;
 namespace WebTH.Models.EF
 {
     [Table("tb_Product")]
-    public class Product:CommonAbstract
+    public class Product : CommonAbstract
     {
         public Product()
         {
             this.ProductImage = new HashSet<ProductImage>();
             this.OrderDetails = new HashSet<OrderDetail>();
+            this.Reviews = new HashSet<ReviewProduct>();
+
 
         }
         [Key]
@@ -36,6 +38,8 @@ namespace WebTH.Models.EF
         public string Detail { get; set; }
         [StringLength(250)]
         public string Image { get; set; }
+
+        public decimal OriginalPrice { get; set; }
 
         public decimal Price { get; set; }
         
@@ -68,6 +72,9 @@ namespace WebTH.Models.EF
         public virtual ICollection<ProductImage> ProductImage { get; set; }
 
         public virtual ICollection<OrderDetail> OrderDetails { get; set; }
+
+        public virtual ICollection<ReviewProduct> Reviews { get; set; }
+
 
 
     }

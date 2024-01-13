@@ -36,8 +36,8 @@
                                     <img src="@Model.Image" alt="@Model.Title" />
                                 </a>
                                 <div class="date-blo4 flex-col-c-m">
-                                    <span class="txt30 m-b-4"> 20 </span>
-                                    <span class="txt31"> Jul, 2015 </span>
+                                    <span class="txt30 m-b-4"> @Model.CreatedDate.ToString("dd") </span>
+                                    <span class="txt31"> @Model.CreatedDate.ToString("MMM"), @Model.CreatedDate.ToString("yyyy") </span>
                                 </div>
                             </div>
 

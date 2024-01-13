@@ -1,0 +1,55 @@
+﻿@model WebTH.Models.EF.ReviewProduct
+
+
+@using (Ajax.BeginForm("PostReview", "Review", new AjaxOptions
+{
+    HttpMethod = "POST",
+    UpdateTargetId = "load_review",
+    OnSuccess = "OnSuccessRE",
+    OnFailure = "OnFailureRE",
+    OnBegin = "OnBeginRE"
+
+}, new { @Id = "review_form" }))
+{
+    <script>
+        function OnBeginRE() {
+            $('#review_submit').attr("disabled", "disabled");
+            $('#load_send').html('<h2>Đang gửi....</h2>');
+        }
+        function OnSuccessRE(res) {
+            debugger;
+            if (res.Success) {
+                $("#review_form")[0].reset();
+            }
+        }
+    </script>
+    @Html.AntiForgeryToken()@*<form id="review_form" action="post">*@
+    <div class="leave-comment p-t-10">
+        <h4 class="txt33 p-b-14">Để lại bình luận</h4>
+        <p>
+            Các trường bắt buộc được đánh dấu *
+        </p>
+        @*<textarea class="bo-rad-10 size29 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-40" name="commentent"
+            placeholder="Bình luận..."></textarea>*@
+        @Html.TextAreaFor(x => x.Content, new { @class = "bo-rad-10 size29 bo2 txt10 p-l-20 p-t-15 m-b-10 m-t-40", @placeholder = "Bình luận..." })
+
+        <div class="size30 bo2 bo-rad-10 m-t-3 m-b-20">
+            @*<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="name"
+                placeholder="Tên *" />*@
+            @Html.TextBoxFor(x => x.FullName, new { @class = "bo-rad-10 sizefull txt10 p-l-20", @placeholder = "Tên *", @id = "review_name" })
+        </div>
+        <div class="size30 bo2 bo-rad-10 m-t-3 m-b-20">
+            @*<input class="bo-rad-10 sizefull txt10 p-l-20" type="text" name="email"
+                placeholder="Email *" />*@
+            @Html.TextBoxFor(x => x.Email, new { @class = "bo-rad-10 sizefull txt10 p-l-20", @placeholder = "Email *", @id = "review_email" })
+        </div>
+        @Html.HiddenFor(x => x.UserName)
+        @Html.HiddenFor(x => x.ProductId, new { @value = ViewBag.ProductId })
+
+
+        <button value="Submit" type="submit" class="btn3 flex-c-m size31 txt11 trans-0-4">
+            Gửi bình luận
+        </button>
+    </div>
+
+}
