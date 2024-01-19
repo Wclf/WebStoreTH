@@ -1,4 +1,5 @@
 ﻿using Microsoft.AspNet.Identity;
+using Microsoft.AspNet.Identity.EntityFramework;
 using Microsoft.AspNet.Identity.Owin;
 using Microsoft.Owin.Security;
 using System;
@@ -131,7 +132,7 @@ namespace WebTH.Areas.Admin.Controllers
                 var result = await UserManager.CreateAsync(user, model.Password);
                 if (result.Succeeded)
                 {
-                    UserManager.AddToRole(user.Id, model.Role); 
+                    UserManager.AddToRole(user.Id, model.Role);
                     //await SignInManager.SignInAsync(user, isPersistent: false, rememberBrowser: false);
 
                     // For more information on how to enable account confirmation and password reset please visit https://go.microsoft.com/fwlink/?LinkID=320771
@@ -149,6 +150,31 @@ namespace WebTH.Areas.Admin.Controllers
 
             // If we got this far, something failed, redisplay form
             return View(model);
+        }
+
+
+        [HttpPost]
+        public async Task<ActionResult> DeleteAccount(string user, string id)
+        {
+            var code = new { Success = false }; // mac dinh khong xoa thanh cong
+            var item = UserManager.FindByName(user);
+            if (item != null)
+            {
+                var rolesForUser = UserManager.GetRoles(id);
+                if(rolesForUser!= null)
+                {
+                    foreach (var role in rolesForUser)
+                    {
+                        //roles.Add(role);
+                        await UserManager.RemoveFromRoleAsync(id, role);
+                    }
+                }
+                
+                
+                var res = await UserManager.DeleteAsync(item);
+                code = new { Success = res.Succeeded };
+            }
+            return Json(code);
         }
 
         private IAuthenticationManager AuthenticationManager
@@ -175,5 +201,11 @@ namespace WebTH.Areas.Admin.Controllers
                 ModelState.AddModelError("", error);
             }
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
+
     }
 }

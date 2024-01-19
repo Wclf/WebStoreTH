@@ -34,5 +34,10 @@ namespace WebTH.Controllers
             var item = db.News.Find(id);
             return View(item);
         }
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
     }
 }

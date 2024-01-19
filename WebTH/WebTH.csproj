@@ -206,6 +206,7 @@
     <Compile Include="Controllers\ProductsController.cs" />
     <Compile Include="Controllers\ReviewController.cs" />
     <Compile Include="Controllers\ShoppingCartController.cs" />
+    <Compile Include="Controllers\WishlistController.cs" />
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
@@ -289,6 +290,10 @@
     <Compile Include="Migrations\202401121227318_Table_Review_Edit_ForeginKey.Designer.cs">
       <DependentUpon>202401121227318_Table_Review_Edit_ForeginKey.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202401131730377_tableWishlist.cs" />
+    <Compile Include="Migrations\202401131730377_tableWishlist.Designer.cs">
+      <DependentUpon>202401131730377_tableWishlist.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -309,6 +314,7 @@
     <Compile Include="Models\EF\Subscribe.cs" />
     <Compile Include="Models\EF\SystemSetting.cs" />
     <Compile Include="Models\EF\ThongKe.cs" />
+    <Compile Include="Models\EF\Wishlist.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
@@ -844,6 +850,7 @@
     <Content Include="Content\assets\images\TH-Yogurt-5.png" />
     <Content Include="Content\assets\images\TH-Yogurt-6.png" />
     <Content Include="Content\assets\images\thtruemilk-factories.jpg" />
+    <Content Include="Content\assets\js\custom1.js" />
     <Content Include="Content\assets\js\main.js" />
     <Content Include="Content\assets\js\map-custom.js" />
     <Content Include="Content\assets\js\shop-detail.js" />
@@ -4073,6 +4080,7 @@
     <Content Include="Views\Account\Profile.cshtml" />
     <Content Include="Views\Review\_Review.cshtml" />
     <Content Include="Views\Review\_Load_Review.cshtml" />
+    <Content Include="Views\Wishlist\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4155,6 +4163,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202401121227318_Table_Review_Edit_ForeginKey.resx">
       <DependentUpon>202401121227318_Table_Review_Edit_ForeginKey.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202401131730377_tableWishlist.resx">
+      <DependentUpon>202401131730377_tableWishlist.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

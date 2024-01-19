@@ -30,7 +30,9 @@ namespace WebTH.Models
             : base("DefaultConnection", throwIfV1Schema: false)
         {
         }
-        
+
+
+        public DbSet<Wishlist> Wishlists { get; set; }
 
         public DbSet<ReviewProduct> Reviews { get; set; }
 

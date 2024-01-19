@@ -51,18 +51,18 @@
                         var i = 1;
                         foreach (var item in Model)
                         {
-                    <tr>
-                        <td>@i</td>
-                        <td>@item.UserName</td>
-                        <td>@item.Fullname</td>
-                        <td>@item.Email</td>
+                            <tr id="trow_@item.Id">
+                                <td>@i</td>
+                                <td>@item.UserName</td>
+                                <td>@item.Fullname</td>
+                                <td>@item.Email</td>
 
-                        <td>
-                            <a href="/admin/account/edit/@item.UserName" class="btn btn-sm btn-primary">Sửa</a>
-                            <a href="#" data-user="@item.UserName" class="btn btn-sm btn-danger btnDelete">Xóa</a>
+                                <td>
+                                    <a href="/admin/account/edit" class="btn btn-sm btn-primary">Sửa</a>
+                                    <a href="#" data-user="@item.UserName" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete">Xóa</a>
 
-                        </td>
-                    </tr>
+                                </td>
+                            </tr>
                             i++;
                         }
                     }
@@ -79,3 +79,26 @@
 
 </section>
 <!-- /.content -->
+
+@section scripts {
+
+    <script>
+        $(document).ready(function () {
+            $('.btnDelete').click(function () {
+                var user = $(this).data('user');
+                var id = $(this).data('id');
+
+                $.ajax({
+                    url: '/admin/account/DeleteAccount',
+                    type: 'POST',
+                    data: { user: user, id: id },
+                    success: function (res) {
+                        if (res.Success) {
+                            $('#trow_' + id).remove();
+                        }
+                    }
+                });
+            });
+        });
+    </script>
+}

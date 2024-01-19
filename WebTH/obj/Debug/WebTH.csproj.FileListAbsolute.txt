@@ -135,3 +135,4 @@ D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\W
 D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.InsertCustomerIdOder.resources
 D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.Review_Table.resources
 D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.Table_Review_Edit_ForeginKey.resources
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.tableWishlist.resources

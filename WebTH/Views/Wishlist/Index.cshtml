@@ -1,0 +1,194 @@
+﻿@model PagedList.PagedList<WebTH.Models.EF.Wishlist>
+@using PagedList
+@using PagedList.Mvc
+@{
+    ViewBag.Title = "Sản phẩm yêu thích";
+}
+
+
+<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15"
+         style="background-image: url(/Content/assets/images/bg-title-page-3.jpg)">
+    <h2 class="tit6 t-center">Sản phẩm yêu thích</h2>
+</section>
+
+<section>
+    <div class="bread-crumb bo5-b p-t-17 p-b-17">
+        <div class="container">
+            <a href="/" class="txt27"> Trang chủ </a>
+            <span class="txt29 m-l-10 m-r-10">/</span>
+            <span class="txt29"> Sản phẩm yêu thích </span>
+        </div>
+    </div>
+    <div class="container">
+        <div class="row">
+            <div class="col-md-8 col-lg-9">
+                <div class="p-t-80 p-b-124 bo5-r h-full p-r-50 p-r-0-md bo-none-md">
+                    @if (Model != null && Model.Any())
+                    {
+                        foreach (var item in Model)
+                        {
+                            var strImage = "";
+                            var img = item.Product.ProductImage.FirstOrDefault(x => x.IsDefault);
+                            if (img != null)
+                            {
+                                strImage = img.Image;
+                            }
+                            <div class="blo4 p-b-63">
+                                <div class="pic-blo4 hov-img-zoom bo-rad-10 pos-relative">
+                                    <a href="/@item.Product.Alias-n@(item.ProductId)">
+                                        <img src="@strImage" alt="@item.Product.Title" />
+                                    </a>
+                                    <div class="date-blo4 flex-col-c-m">
+                                        <span class="txt30 m-b-4"> @item.Product.CreatedDate.ToString("dd") </span>
+                                        <span class="txt31"> @item.Product.CreatedDate.ToString("MMM"), @item.Product.CreatedDate.ToString("yyyy") </span>
+                                    </div>
+                                </div>
+                                <div class="text-blo4 p-t-33">
+                                    <h4 class="p-b-16">
+                                        <a href="/@item.Product.Alias-n@(item.ProductId)" class="tit9">@item.Product.Title </a>
+                                    </h4>
+                                    <div class="txt32 flex-w p-b-24">
+                                        <span>
+                                            by Admin
+                                            <span class="m-r-6 m-l-4">|</span>
+                                        </span>
+                                        <span>
+                                            @item.CreatedDate
+                                            <span class="m-r-6 m-l-4">|</span>
+                                        </span>
+                                        <span>
+                                            @item.Product.Alias
+                                            <span class="m-r-6 m-l-4">|</span>
+                                        </span>
+                                        <span> Comments </span>
+                                    </div>
+                                    <p>
+                                        @item.Product.Description
+                                    </p>
+                                    <div>
+                                        <a href="#" data-id="@item.Id" class="btn btn-danger">Xóa</a>
+                                    </div>
+                                </div>
+                            </div>
+                        }
+                        <div class="row">
+                            <div class="col-6"></div>
+                            <div class="col-6" style="text-align: right">
+                                @Html.PagedListPager(Model, page => Url.Action("Index", new { page }))
+
+                            </div>
+                        </div>
+                    }
+
+
+
+
+                </div>
+            </div>
+            <div class="col-md-4 col-lg-3">
+                <div class="sidebar2 p-t-80 p-b-80 p-l-20 p-l-0-md p-t-0-md">
+                    <div class="search-sidebar2 size12 bo2 pos-relative">
+                        <input class="input-search-sidebar2 txt10 p-l-20 p-r-55" type="text" name="search"
+                               placeholder="Search" />
+                        <button class="btn-search-sidebar2 flex-c-m fa fa-search trans-0-4"></button>
+                    </div>
+
+                    <div class="categories">
+                        <h4 class="txt33 bo5-b p-b-35 p-t-58">Danh sách</h4>
+                        <ul>
+                            <li class="bo5-b p-t-8 p-b-8">
+                                <a href="#" class="txt27"> Tư vấn sử dụng sữa </a>
+                            </li>
+                            <li class="bo5-b p-t-8 p-b-8">
+                                <a href="#" class="txt27"> Bí quyết khỏe đẹp tự nhiên </a>
+                            </li>
+                            <li class="bo5-b p-t-8 p-b-8">
+                                <a href="#" class="txt27"> Bí quyết chăm sóc con cái </a>
+                            </li>
+                            <li class="bo5-b p-t-8 p-b-8">
+                                <a href="#" class="txt27"> Phong cách sống xanh </a>
+                            </li>
+                            <li class="bo5-b p-t-8 p-b-8">
+                                <a href="#" class="txt27"> Thức ăn ngon th food </a>
+                            </li>
+                        </ul>
+                    </div>
+
+                    <div class="popular">
+                        <h4 class="txt33 p-b-35 p-t-58">Most popular</h4>
+                        <ul>
+                            <li class="flex-w m-b-25">
+                                <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                                    <a href="#">
+                                        <img src="images/blog-9.jpg" alt="IMG-BLOG" />
+                                    </a>
+                                </div>
+                                <div class="size28">
+                                    <a href="#" class="dis-block txt28 m-b-8">
+                                        Sử dụng sữa với các món ăn
+                                    </a>
+                                    <span class="txt14"> 3 days ago </span>
+                                </div>
+                            </li>
+                            <li class="flex-w m-b-25">
+                                <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                                    <a href="#">
+                                        <img src="images/blog-9.jpg" alt="IMG-BLOG" />
+                                    </a>
+                                </div>
+                                <div class="size28">
+                                    <a href="#" class="dis-block txt28 m-b-8">
+                                        Sử dụng sữa với các món ăn
+                                    </a>
+                                    <span class="txt14"> July 2, 2023 </span>
+                                </div>
+                            </li>
+                            <li class="flex-w m-b-25">
+                                <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                                    <a href="#">
+                                        <img src="images/blog-9.jpg" alt="IMG-BLOG" />
+                                    </a>
+                                </div>
+                                <div class="size28">
+                                    <a href="#" class="dis-block txt28 m-b-8">
+                                        Sử dụng sữa với các món ăn
+
+                                    </a>
+                                    <span class="txt14"> May 28, 2023 </span>
+                                </div>
+                            </li>
+                            <li class="flex-w m-b-25">
+                                <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                                    <a href="#">
+                                        <img src="images/blog-9.jpg" alt="IMG-BLOG" />
+                                    </a>
+                                </div>
+                                <div class="size28">
+                                    <a href="#" class="dis-block txt28 m-b-8">
+                                        Sử dụng sữa với các món ăn
+
+                                    </a>
+                                    <span class="txt14"> May 25, 2023 </span>
+                                </div>
+                            </li>
+                            <li class="flex-w m-b-25">
+                                <div class="size16 bo-rad-10 wrap-pic-w of-hidden m-r-18">
+                                    <a href="#">
+                                        <img src="images/blog-9.jpg" alt="IMG-BLOG" />
+                                    </a>
+                                </div>
+                                <div class="size28">
+                                    <a href="#" class="dis-block txt28 m-b-8">
+                                        Sử dụng sữa với các món ăn
+
+                                    </a>
+                                    <span class="txt14"> May 2, 2023 </span>
+                                </div>
+                            </li>
+                        </ul>
+                    </div>
+                </div>
+            </div>
+        </div>
+    </div>
+</section>

@@ -10,26 +10,90 @@
         {
             strImage = img.Image;
         }
-        <div class="item-gallery isotope-item bo-rad-10 hov-img-zoom juice pos-relative @item.ProductCategory.Alias">
-            <img src="@strImage" alt="@item.Title" />
-            <a href="/chi-tiet/@item.Alias-p@(item.Id)">
-                <div class="bgTH flex-sb-m shop-blo1">
-                    <h1 class="txt37 m-b-0">@item.Title</h1>
-                    @if (item.PriceSale > 0)
-                    {
-                        <p class="txt36">@WebTH.Common.Common.FormatNumber(item.PriceSale, 0)<span style="color: #d92f24"><strike>@WebTH.Common.Common.FormatNumber(item.Price, 0)</strike></span></p>
+        <style>
+            .item-gallery:hover .favorite {
+                visibility:visible;
+                opacity:1;
+            }
 
-                    }
-                    else
-                    {
-                        <p class="txt36">@WebTH.Common.Common.FormatNumber(item.Price, 0)</p>
+            .favorite {
+                position: absolute;
+                top: 15px;
+                right: 15px;
+                color: #b9b4c7;
+                width: 24px;
+                height: 24px;
+                visibility: hidden;
+                opacity: 0;
+            }
 
-                    }
-                </div>
-            </a>
-            <div class="bgTH cart-blo1">
-                <a href="" class="btnAddToCart" data-id="@item.Id"><i class="fa fa-cart-plus fs-24 c-white" aria-hidden="true"></i></a>
+            .favorite_left {
+                left: 15px;
+            }
+
+            .favorite.active {
+                visibility: visible;
+                opacity: 1;
+            }
+
+
+            .favorite.active::after {
+                font-family: 'FontAwesome';
+                content: '\f004';
+                color: #fe4c50;
+            }
+
+            .favorite::after {
+                font-family: 'FontAwesome';
+                content: '\f08a';
+            }
+
+            .favorite:hover::after {
+                color: #fe4c50;
+            }
+        </style>
+        var wishlist = item.Wishlists.FirstOrDefault(x => x.UserName == User.Identity.Name);
+        var isWishlist = false;
+        if(wishlist!=null)
+        {
+            isWishlist = true;
+        }
+<div class="item-gallery isotope-item bo-rad-10 hov-img-zoom juice pos-relative @item.ProductCategory.Alias">
+
+
+    <a href="/chi-tiet/@item.Alias-p@(item.Id)">
+        <img src="@strImage" alt="@item.Title" />
+        <a href="/chi-tiet/@item.Alias-p@(item.Id)">
+            <div class="bgTH flex-sb-m shop-blo1">
+                <h1 class="txt37 m-b-0">@item.Title</h1>
+                @if (item.PriceSale > 0)
+                {
+                    <p class="txt36">@WebTH.Common.Common.FormatNumber(item.PriceSale, 0)<span style="color: #d92f24"><strike>@WebTH.Common.Common.FormatNumber(item.Price, 0)</strike></span></p>
+
+                }
+                else
+                {
+                    <p class="txt36">@WebTH.Common.Common.FormatNumber(item.Price, 0)</p>
+
+                }
             </div>
+        </a>
+        <div class="bgTH cart-blo1">
+            <a href="" class="btnAddToCart" data-id="@item.Id"><i class="fa fa-cart-plus fs-24 c-white" aria-hidden="true"></i></a>
         </div>
+
+
+    </a>
+    @if (isWishlist == true)
+    {
+        <div data-id="@item.Id" class="favorite favorite_left active"></div>
+
+    }
+    else
+    {
+        <div data-id="@item.Id" class="favorite favorite_left"></div>
+
+    }   
+</div>
     }
 }

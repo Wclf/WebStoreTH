@@ -65,6 +65,9 @@ namespace WebTH.Controllers
 
         }
 
-
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
+        }
     }
 }
