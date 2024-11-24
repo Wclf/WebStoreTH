@@ -14,8 +14,8 @@ namespace WebTH.Common
 
         //private static string password = ConfigurationManager.AppSettings["PasswordEmail"];
         //private static string Email = ConfigurationManager.AppSettings["Email"];
-        private static string password = "ezkizccshyxbhuzw";
-        private static string Email = "thangplaysvalorant14@gmail.com";
+        private static string password = "mcsqftterxiejgsl";
+        private static string Email = "wclf.notification@gmail.com";
         private static string EmailAdmin = "thang10102k3@gmail.com";
 
         public static bool SendMail(string name, string subject, string content,

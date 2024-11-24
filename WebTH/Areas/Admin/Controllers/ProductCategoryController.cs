@@ -21,10 +21,13 @@ namespace WebTH.Areas.Admin.Controllers
             return View(items);
         }
 
-        public ActionResult Add()
+
+        public ActionResult Hienthi()
         {
-            return View();
+            var items = db.ProductCategories;
+            return View(items);
         }
+        //thêm mới 
 
         [HttpPost]
         [ValidateAntiForgeryToken]
@@ -40,6 +43,28 @@ namespace WebTH.Areas.Admin.Controllers
                 return RedirectToAction("Index");
             }
             return View();
+        }
+
+        //xóa
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var item = db.ProductCategories.Find(id);
+            if (item != null)
+            {
+                db.ProductCategories.Remove(item);
+                db.SaveChanges();
+                return Json(new { success = true });
+            }
+
+            return Json(new { success = false });
+        }
+
+
+        protected override void Dispose(bool disposing)
+        {
+            base.Dispose(disposing);
         }
     }
 }

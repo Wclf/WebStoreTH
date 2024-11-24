@@ -19,6 +19,11 @@ namespace WebTH.Areas.Admin.Controllers
             return View(items);
         }
 
+        public ActionResult Index()
+        {
+            return View();
+        }
+
         [HttpPost]
         public ActionResult AddImage(int productId, string url)
         {
