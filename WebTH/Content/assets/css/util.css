@@ -464,7 +464,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 -----------------------------------------------------------
 */
 .tit1 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 700;
 	font-size: 90px;
 	line-height: 1.1;
@@ -496,7 +496,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .tit3 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 700;
 	font-size: 50px;
 	line-height: 1.2;
@@ -506,7 +506,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .tit4 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 700;
 	font-size: 50px;
 	line-height: 1.2;
@@ -517,7 +517,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .tit4-copy {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 700;
 	font-size: 50px;
 	line-height: 1.2;
@@ -528,7 +528,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .tit5 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 700;
 	font-size: 50px;
 	line-height: 1.2;
@@ -539,7 +539,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .tit6 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 700;
 	font-size: 50px;
 	line-height: 1.2;
@@ -550,7 +550,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .tit6-copy {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 700;
 	font-size: 50px;
 	line-height: 1.2;
@@ -561,7 +561,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .tit7 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 500;
 	font-size: 22px;
 	line-height: 1.2;
@@ -571,7 +571,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .tit8 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 700;
 	font-size: 50px;
 	line-height: 1.2;
@@ -581,7 +581,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .tit9 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 400;
 	font-size: 30px;
 	line-height: 1.2;
@@ -591,7 +591,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .tit10 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 500;
 	font-size: 24px;
 	line-height: 1.2;
@@ -601,7 +601,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .tit11 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 700;
 	font-size: 50px;
 	line-height: 1.1;
@@ -612,7 +612,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .tit12 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 400;
 	font-size: 16px;
 	line-height: 1.5;
@@ -623,7 +623,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .tit13 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 400;
 	font-size: 24px;
 	line-height: 1.2;
@@ -668,7 +668,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .txt5 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 500;
 	font-size: 22px;
 	color: #333333;
@@ -747,7 +747,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .txt13 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 500;
 	font-size: 18px;
 	color: white;
@@ -759,7 +759,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 	font-family: Montserrat;
 	font-weight: 400;
 	font-size: 13px;
-	color: #000;
+	color: #fff;
 	line-height: 1.7;
 }
 
@@ -819,7 +819,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .txt20 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 500;
 	font-size: 18px;
 	color: #222222;
@@ -828,7 +828,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .txt21 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 300;
 	font-size: 18px;
 	color: #333333;
@@ -871,7 +871,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .txt26 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 500;
 	font-size: 15px;
 	color: #333333;
@@ -890,7 +890,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .txt28 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 500;
 	font-size: 12px;
 	color: #222222;
@@ -936,7 +936,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .txt33 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 500;
 	font-size: 22px;
 	color: #222222;
@@ -945,7 +945,7 @@ TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT TEXT
 }
 
 .txt34 {
-	font-family: Poppins;
+	font-family: Montserrat;
 	font-weight: 700;
 	font-size: 18px;
 	line-height: 1.4;
