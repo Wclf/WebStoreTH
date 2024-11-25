@@ -57,7 +57,25 @@
                                 <td>@item.CustomerName</td>
                                 <td>@item.Phone</td>
                                 <td>@WebTH.Common.Common.FormatNumber(item.TotalAmount, 0)</td>
-                                <td>@(item.TypePayment==1?"Chờ thanh toán":"Đã thanh toán")</td>
+                                <td>
+                                    @*@(item.TypePayment==1?"Chờ thanh toán":"Đã thanh toán")*@
+                                    @if (item.TypePayment == 1)
+                                    {
+                                        @:Chưa thanh toán
+                                    }
+                                    else if (item.TypePayment == 2)
+                                    {
+                                        @:Đã thanh toán
+                                    }
+                                    else if (item.TypePayment == 3)
+                                    {
+                                        @:Đang giao hàng
+                                    }
+                                    else
+                                    {
+                                        @:Giao hàng thành công
+                                    }
+                                </td>
                                 <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
 
                                 <td>
@@ -102,11 +120,14 @@
                 </button>
             </div>
             <div class="modal-body">
-                <input type="hidden" id="txtOrderId" value="0"/>
+                <input type="hidden" id="txtOrderId" value="0" />
                 <div class="form-group">
                     <label>Trạng thái</label>
                     <select class="form-control" id="ddTrangThai">
+                        <option value="1">Chờ Thanh Toán</option>
                         <option value="2">Đã thanh toán</option>
+                        <option value="3">Đang Giao Hàng</option>
+                        <option value="4">Giao hàng thành công</option>
                     </select>
                 </div>
             </div>
@@ -146,4 +167,4 @@
             });
         });
     </script>
-    }
+}
