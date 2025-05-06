@@ -1,0 +1,38 @@
+﻿
+@{
+    ViewBag.Title = "VnpayReturn";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<style>
+    .error {
+        color: red;
+    }
+</style>
+
+<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15"
+         style="background-image: url(/Content/assets/images/bg-cover-video-2.jpg)">
+    <h2 class="tit6 t-center">Thanh toán</h2>
+</section>
+
+
+<div class="container p-t-160 p-b-80 p-l-15 p-r-15 " id="load_data">
+    <div class="row">
+        <div class="col-md-12 text-center m-b-18">
+            <h1 class="" style="font-size:80px; font-weight:bold;">Thanh toán</h1>
+            @if(@ViewBag.ThanhToanThanhCong != null)
+            {
+                <p>Bạn đã thanh toán thành công @ViewBag.ThanhToanThanhCong!</p>    
+            }
+        <p>@ViewBag.InnerText</p>
+        </div>
+    </div>
+    <hr />
+    @*<div class="row">
+        <div id="show_success"></div>
+        <div class="col-md-9">
+
+        </div>
+
+    </div>*@
+</div>

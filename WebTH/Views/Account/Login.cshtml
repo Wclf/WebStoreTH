@@ -47,8 +47,9 @@
                             <input type="submit" value="Đăng nhập" class="btn btn-default" />
                         </div>
                     </div>
-                    <p>
-                        @Html.ActionLink("Đăng ký nếu là người mới", "Register")
+                    <p style="display:flex; justify-content:space-between;">
+                        @Html.ActionLink("Đăng ký", "Register")
+                        <a href="/account/ForgotPassword">Quên mật khẩu</a>
                     </p>
                     @* Enable this once you have account confirmation enabled for password reset functionality
                         <p>

@@ -294,6 +294,10 @@
     <Compile Include="Migrations\202401131730377_tableWishlist.Designer.cs">
       <DependentUpon>202401131730377_tableWishlist.cs</DependentUpon>
     </Compile>
+    <Compile Include="Migrations\202505050210004_AddStatus.cs" />
+    <Compile Include="Migrations\202505050210004_AddStatus.Designer.cs">
+      <DependentUpon>202505050210004_AddStatus.cs</DependentUpon>
+    </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
     <Compile Include="Models\CommonAbstract.cs" />
@@ -318,6 +322,7 @@
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
+    <Compile Include="Models\Payments\VnPayLibrary.cs" />
     <Compile Include="Models\SettingSystemViewModel.cs" />
     <Compile Include="Models\ShoppingCart.cs" />
     <Compile Include="Models\ThongKeViewModel.cs" />
@@ -4081,6 +4086,8 @@
     <Content Include="Views\Review\_Review.cshtml" />
     <Content Include="Views\Review\_Load_Review.cshtml" />
     <Content Include="Views\Wishlist\Index.cshtml" />
+    <Content Include="Views\ShoppingCart\VnpayReturn.cshtml" />
+    <Content Include="Views\Review\LichSuDonHang.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
@@ -4166,6 +4173,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Migrations\202401131730377_tableWishlist.resx">
       <DependentUpon>202401131730377_tableWishlist.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="Migrations\202505050210004_AddStatus.resx">
+      <DependentUpon>202505050210004_AddStatus.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

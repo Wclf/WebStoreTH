@@ -1,0 +1,46 @@
+﻿@model IEnumerable<WebTH.Models.EF.Order>
+@if (Model != null)
+{
+    var i = 1;
+    <h2>Lịch sử mua hàng</h2>
+    <table class="table table-bordered">
+        <thead>
+            <tr>
+                <th>STT</th>
+                <th>Mã DH</th>
+                <th>Trạng thái đơn</th>
+            </tr>
+        </thead>
+            <tbody>
+                @foreach (var item in Model)
+                {
+                    <tr>
+                        <td>@i</td>
+                        <td>@item.Code</td>
+                        <td>
+                            @if(item.Status == 1)
+                    {
+                        @:Chờ thanh toán
+                    }
+                            else if(item.Status == 2)
+                    {
+                        @:Đã thanh toán
+                    }
+                            else if(item.Status == 3)
+                    {
+                        @:Đang giao hàng
+                    }
+                            else
+                    {
+                        @:Hoàn thành
+                    }
+
+                        </td>   
+                    </tr>
+                    i++;
+
+
+                }
+            </tbody>
+    </table>
+}

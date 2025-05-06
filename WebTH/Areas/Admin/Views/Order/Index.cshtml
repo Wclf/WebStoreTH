@@ -39,6 +39,7 @@
                         <th>Tên khách hàng</th>
                         <th>Số điện thoại</th>
                         <th>Tiền</th>
+                        <th>Phương thức thanh toán</th>
                         <th>Trạng thái</th>
                         <th>Ngày tạo</th>
                         <th></th>
@@ -51,7 +52,7 @@
                         var i = ((ViewBag.Page - 1) * ViewBag.PageSize) + 1;
                         foreach (var item in Model)
                         {
-                            <tr>
+                            <tr id="trow_@item.Id">
                                 <td>@i</td>
                                 <td>@item.Code</td>
                                 <td>@item.CustomerName</td>
@@ -61,26 +62,49 @@
                                     @*@(item.TypePayment==1?"Chờ thanh toán":"Đã thanh toán")*@
                                     @if (item.TypePayment == 1)
                                     {
-                                        @:Chưa thanh toán
-                                    }
-                                    else if (item.TypePayment == 2)
-                                    {
-                                        @:Đã thanh toán
-                                    }
-                                    else if (item.TypePayment == 3)
-                                    {
-                                        @:Đang giao hàng
+                                        @:COD
                                     }
                                     else
                                     {
-                                        @:Giao hàng thành công
+                                        @:Chuyển khoản
                                     }
                                 </td>
+                                <td>
+                                    @if(item.Status == 1)
+                    {
+                        <span>Chưa thanh toán</span>
+                    }
+                                    @if(item.Status == 2)
+                    {
+                        <span>Đã thanh toán</span>
+                    } 
+                                    @if(item.Status == 3)
+                    {
+                        <span>Đang giao hàng</span>
+                    }
+                                    @if(item.Status == 4)
+                    {
+                        <span>Hoàn thành</span>
+                    }
+ 
+                                </td>
+                                
                                 <td>@item.CreatedDate.ToString("dd/MM/yyyy")</td>
 
                                 <td>
                                     <a href="/admin/order/view/@item.Id" class="btn btn-sm btn-success">Xem</a>
-                                    <a href="#" class="btn btn-sm btn-danger btnCapNhat" data-id="@item.Id">Cập nhật</a>
+                                    @if (item.Status == 4)
+                                    {
+                                        <a></a>
+                                    }
+                                    else
+                                    {
+                                        <a href="#" class="btn btn-sm btn-primary btnCapNhat" data-id="@item.Id">Cập nhật</a>
+                                        <a href="#" data-id="@item.Id" class="btn btn-sm btn-danger btnDelete">Hủy</a>
+
+
+                                    }
+
                                 </td>
 
                             </tr>
@@ -127,7 +151,7 @@
                         <option value="1">Chờ Thanh Toán</option>
                         <option value="2">Đã thanh toán</option>
                         <option value="3">Đang Giao Hàng</option>
-                        <option value="4">Giao hàng thành công</option>
+                        <option value="4">Hoàn thành đơn</option>
                     </select>
                 </div>
             </div>
@@ -164,6 +188,22 @@
                         }
                     }
                 });
+            });
+            $('body').on('click', '.btnDelete', function () {
+                var id = $(this).data("id");
+                var conf = confirm('Bạn có muốn xóa bản ghi này không');
+                if (conf === true) {
+                    $.ajax({
+                        url: '/admin/order/delete',
+                        type: 'POST',
+                        data: { id: id },
+                        success: function (rs) {
+                            if (rs.success) {
+                                $('#trow_' + id).remove();
+                            }
+                        }
+                    });
+                }
             });
         });
     </script>

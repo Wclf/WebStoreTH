@@ -55,13 +55,50 @@
                             </tr>
                         </thead>
                         <tbody id="load_data">
-
                         </tbody>
                     </table>
                 </div>
             </div>
+            <div class="row">
+                <div class="col-md-8">
+                    <div class="chart">
+                        <canvas id="barChart2" style="min-height: 250px; height: 250px; max-height: 250px; max-width: 100%;"></canvas>
+                    </div>
+                </div>
+                <div class="col-md-4">
+                    <div class="card">
+                        <div class="card-header">
+                            <h3 class="card-title">Thống kê doanh thu theo ngày, tháng, năm</h3>
+                        </div>
+                        <div class="card-body">
+                            <div class="form-group">
+                                <label for="filterType">Doanh thu theo:</label>
+                                <select id="filterType" class="form-control">
+                                    <option value="day">Ngày</option>
+                                    <option value="month">Tháng</option>
+                                    <option value="year">Năm</option>
+                                </select>
+                            </div>
+                            <table class="table table-bordered">
+                                <thead>
+                                    <tr>
+                                        <th>#</th>
+                                        <th>Thời gian</th>
+                                        <th>Doanh thu</th>
+                                        <th>Lợi nhuận</th>
+                                    </tr>
+                                </thead>
+                                <tbody id="load_filter_data">
+                                </tbody>
+                            </table>
+                        </div>
+                    </div>
 
+                </div>
+            </div>
         </div>
+
+
         <!-- /.card-body -->
         <div class="card-footer">
             Footer
@@ -154,7 +191,7 @@
             });
 
 
-           
+
         })
 
         function load_data(data) {
@@ -170,6 +207,109 @@
             });
             $('#load_data').html(strHtml);
         }
+
+    </script>
+    <script>
+        //$(function () {
+        //    $("#filterType").change(function () {
+        //        var filterType = $(this).val();
+        //        $.ajax({
+        //            url: '/Statistical/GetStatisticalByFilter',
+        //            type: 'GET',
+        //            data: { filterType: filterType },
+        //            success: function (rs) {
+
+        //                var strHtml = "";
+        //                $.each(rs.Data, function (i, item) {
+        //                    strHtml += "<tr>";
+        //                    strHtml += "<td>" + (i + 1) + "</td>";
+        //                    strHtml += "<td>" + item.Date + "</td>";
+        //                    strHtml += "<td>" + item.DoanhThu + "</td>";
+        //                    strHtml += "<td>" + item.LoiNhuan + "</td>";
+        //                    strHtml += "</tr>";
+        //                });
+        //                $('#load_filter_data').html(strHtml);
+        //            }
+        //        });
+        //    });
+        //});
+
+        $(function () {
+            $("#filterType").change(function () {
+                var filterType = $(this).val();
+                $.ajax({
+                    url: '/Statistical/GetStatisticalByFilter',
+                    type: 'GET',
+                    data: { filterType: filterType },
+                    success: function (rs) {
+                        var arrDoanhThu = [];
+                        var arrLoiNhuan = [];
+                        var arrDate = [];
+                        $.each(rs.Data, function (i, item) {
+                            arrDate.push(item.Date);
+                            arrDoanhThu.push(item.DoanhThu);
+                            arrLoiNhuan.push(item.LoiNhuan);
+                        });
+
+                        // Hiển thị dữ liệu trong bảng
+                        var strHtml = "";
+                        $.each(rs.Data, function (i, item) {
+                            strHtml += "<tr>";
+                            strHtml += "<td>" + (i + 1) + "</td>";
+                            strHtml += "<td>" + item.Date + "</td>";
+                            strHtml += "<td>" + item.DoanhThu + "</td>";
+                            strHtml += "<td>" + item.LoiNhuan + "</td>";
+                            strHtml += "</tr>";
+                        });
+                        $('#load_filter_data').html(strHtml);
+
+                        // Tạo biểu đồ barChart2
+                        createBarChart2(arrDate, arrDoanhThu, arrLoiNhuan);
+                    }
+                });
+            });
+        });
+
+        // Hàm tạo biểu đồ barChart2
+        var barChart2Instance; // Biến toàn cục để lưu biểu đồ barChart2
+
+        function createBarChart2(labels, doanhThu, loiNhuan) {
+            if (barChart2Instance) {
+                barChart2Instance.destroy(); // Xóa biểu đồ cũ nếu tồn tại
+            }
+
+            var ctx = $('#barChart2').get(0).getContext('2d');
+            var barChartData = {
+                labels: labels,
+                datasets: [
+                    {
+                        label: 'Lợi nhuận',
+                        backgroundColor: 'rgba(60,141,188,0.9)',
+                        borderColor: 'rgba(60,141,188,0.8)',
+                        data: loiNhuan
+                    },
+                    {
+                        label: 'Doanh thu',
+                        backgroundColor: 'rgba(210, 214, 222, 1)',
+                        borderColor: 'rgba(210, 214, 222, 1)',
+                        data: doanhThu
+                    },
+                ]
+            };
+
+            var barChartOptions = {
+                responsive: true,
+                maintainAspectRatio: false,
+                datasetFill: false
+            };
+
+             barChart2Instance = new Chart(ctx, {
+                type: 'bar',
+                data: barChartData,
+                options: barChartOptions
+            });
+        }
+        
     </script>
 }
 

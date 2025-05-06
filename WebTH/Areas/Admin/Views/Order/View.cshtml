@@ -79,21 +79,21 @@
                         <label>Trạng thái</label>
                         <p class="form-control">
                             @*@(Model.TypePayment == 1 ? "Chưa thanh toán" : "Đã thanh toán")*@
-                            @if (Model.TypePayment == 1)
+                            @if (Model.Status == 1)
                             {
                                 @:Chưa thanh toán
                             }
-                            else if (Model.TypePayment == 2)
+                            else if (Model.Status == 2)
                             {
                                 @:Đã thanh toán
                             }
-                            else if (Model.TypePayment == 3)
+                            else if (Model.Status == 3)
                             {
                                 @:Đang giao hàng
                             }
                             else
                             {
-                                @:Giao hàng thành công
+                                @:Hoàn thành
                             }
                         </p>
                     </div>

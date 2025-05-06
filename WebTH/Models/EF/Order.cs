@@ -8,11 +8,11 @@ using System.Web;
 namespace WebTH.Models.EF
 {
     [Table("tb_Order")]
-    public class Order:CommonAbstract
+    public class Order : CommonAbstract
     {
         public Order()
         {
-            this.OrderDetails = new HashSet<OrderDetail>(); 
+            this.OrderDetails = new HashSet<OrderDetail>();
         }
         [Key]
         [DatabaseGeneratedAttribute(DatabaseGeneratedOption.Identity)]
@@ -21,13 +21,13 @@ namespace WebTH.Models.EF
         [Required]
         public string Code { get; set; }
 
-        [Required(ErrorMessage ="Tên khách hàng không để trống")]
+        [Required(ErrorMessage = "Tên khách hàng không để trống")]
         public string CustomerName { get; set; }
 
-        [Required(ErrorMessage ="Số điện thoại không để trống")]
+        [Required(ErrorMessage = "Số điện thoại không để trống")]
         public string Phone { get; set; }
 
-        [Required(ErrorMessage ="Địa chỉ không để trống")]
+        [Required(ErrorMessage = "Địa chỉ không để trống")]
         public string Address { get; set; }
 
         public string Email { get; set; }
@@ -37,7 +37,9 @@ namespace WebTH.Models.EF
 
         public int Quantity { get; set; }
 
-        public int TypePayment  { get; set; }
+        public int TypePayment { get; set; }
+
+        public int Status { get; set; }
 
         public string CustomerId { get; set; }
 

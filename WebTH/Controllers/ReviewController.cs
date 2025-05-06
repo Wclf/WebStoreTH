@@ -42,6 +42,19 @@ namespace WebTH.Controllers
             return PartialView();
         }
 
+        public ActionResult LichSuDonHang()
+        {
+            if(User.Identity.IsAuthenticated)
+            {
+                var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
+                var userManager = new UserManager<ApplicationUser>(userStore);
+                var user = userManager.FindByName(User.Identity.Name);
+                var items = _db.Orders.Where(x=>x.CustomerId==user.Id).ToList();
+                return PartialView(items);
+            }
+            return PartialView();
+        }
+
         [AllowAnonymous]
         public ActionResult _Load_Review(int productId)
         {

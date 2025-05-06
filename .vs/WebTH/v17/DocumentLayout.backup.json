@@ -1,0 +1,57 @@
+{
+  "Version": 1,
+  "WorkspaceRootPath": "D:\\Dai Hoc\\Nam 3 Hoc ki 1\\Th\u1EF1c t\u1EADp c\u01A1 s\u1EDF ng\u00E0nh\\WebSiteTHTRUEMILK\\WebTH\\",
+  "Documents": [
+    {
+      "AbsoluteMoniker": "D:0:0:{D12B988B-FD2E-4268-86D1-0C9AD040AADF}|WebTH\\WebTH.csproj|d:\\dai hoc\\nam 3 hoc ki 1\\th\u1EF1c t\u1EADp c\u01A1 s\u1EDF ng\u00E0nh\\websitethtruemilk\\webth\\webth\\areas\\admin\\controllers\\statisticalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}",
+      "RelativeMoniker": "D:0:0:{D12B988B-FD2E-4268-86D1-0C9AD040AADF}|WebTH\\WebTH.csproj|solutionrelative:webth\\areas\\admin\\controllers\\statisticalcontroller.cs||{A6C744A8-0E4A-4FC6-886A-064283054674}"
+    },
+    {
+      "AbsoluteMoniker": "D:0:0:{D12B988B-FD2E-4268-86D1-0C9AD040AADF}|WebTH\\WebTH.csproj|D:\\Dai Hoc\\Nam 3 Hoc ki 1\\Th\u1EF1c t\u1EADp c\u01A1 s\u1EDF ng\u00E0nh\\WebSiteTHTRUEMILK\\WebTH\\webth\\areas\\admin\\views\\statistical\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}",
+      "RelativeMoniker": "D:0:0:{D12B988B-FD2E-4268-86D1-0C9AD040AADF}|WebTH\\WebTH.csproj|solutionrelative:webth\\areas\\admin\\views\\statistical\\index.cshtml||{40D31677-CBC0-4297-A9EF-89D907823A98}"
+    }
+  ],
+  "DocumentGroupContainers": [
+    {
+      "Orientation": 0,
+      "VerticalTabListWidth": 256,
+      "DocumentGroups": [
+        {
+          "DockedWidth": 200,
+          "SelectedChildIndex": 2,
+          "Children": [
+            {
+              "$type": "Bookmark",
+              "Name": "ST:0:0:{e506b91c-c606-466a-90a9-123d1d1e12b3}"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 1,
+              "Title": "Index.cshtml",
+              "DocumentMoniker": "D:\\Dai Hoc\\Nam 3 Hoc ki 1\\Th\u1EF1c t\u1EADp c\u01A1 s\u1EDF ng\u00E0nh\\WebSiteTHTRUEMILK\\WebTH\\WebTH\\Areas\\Admin\\Views\\Statistical\\Index.cshtml",
+              "RelativeDocumentMoniker": "WebTH\\Areas\\Admin\\Views\\Statistical\\Index.cshtml",
+              "ToolTip": "D:\\Dai Hoc\\Nam 3 Hoc ki 1\\Th\u1EF1c t\u1EADp c\u01A1 s\u1EDF ng\u00E0nh\\WebSiteTHTRUEMILK\\WebTH\\WebTH\\Areas\\Admin\\Views\\Statistical\\Index.cshtml",
+              "RelativeToolTip": "WebTH\\Areas\\Admin\\Views\\Statistical\\Index.cshtml",
+              "ViewState": "AgIAAGsAAAAAAAAAAAAAAHYAAAA8AAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000759|",
+              "WhenOpened": "2024-12-20T11:36:19.051Z"
+            },
+            {
+              "$type": "Document",
+              "DocumentIndex": 0,
+              "Title": "StatisticalController.cs",
+              "DocumentMoniker": "D:\\Dai Hoc\\Nam 3 Hoc ki 1\\Th\u1EF1c t\u1EADp c\u01A1 s\u1EDF ng\u00E0nh\\WebSiteTHTRUEMILK\\WebTH\\WebTH\\Areas\\Admin\\Controllers\\StatisticalController.cs",
+              "RelativeDocumentMoniker": "WebTH\\Areas\\Admin\\Controllers\\StatisticalController.cs",
+              "ToolTip": "D:\\Dai Hoc\\Nam 3 Hoc ki 1\\Th\u1EF1c t\u1EADp c\u01A1 s\u1EDF ng\u00E0nh\\WebSiteTHTRUEMILK\\WebTH\\WebTH\\Areas\\Admin\\Controllers\\StatisticalController.cs",
+              "RelativeToolTip": "WebTH\\Areas\\Admin\\Controllers\\StatisticalController.cs",
+              "ViewState": "AgIAACoAAAAAAAAAAAAswDYAAAAnAAAAAAAAAA==",
+              "Icon": "ae27a6b0-e345-4288-96df-5eaf394ee369.000738|",
+              "WhenOpened": "2024-12-20T11:36:09.292Z",
+              "EditorCaption": ""
+            }
+          ]
+        }
+      ]
+    }
+  ]
+}

@@ -51,16 +51,46 @@ namespace WebTH.Areas.Admin.Controllers
         public ActionResult UpdateTT(int id, int trangthai)
         {
             var item = db.Orders.Find(id);
-            if(item != null)
+            if (item != null)
             {
                 db.Orders.Attach(item);
-                item.TypePayment = trangthai;
-                db.Entry(item).Property(x => x.TypePayment).IsModified = true;
+                item.Status = trangthai;
+                db.Entry(item).Property(x => x.Status).IsModified = true;
+                if(trangthai == 2)
+                {
+                    var items = db.OrderDetails.Where(x => x.OrderId == id);
+                    foreach (var sanpham in items)
+                    {
+                        foreach (var dbsp in db.Products)
+                        {
+                            if (sanpham.ProductId == dbsp.Id)
+                            {
+                                dbsp.Quantity = dbsp.Quantity - sanpham.Quantity;
+                            }
+                        }
+                    }
+                }
+                
+
                 db.SaveChanges();
                 return Json(new { message = "Success", Success = true });
             }
             return Json(new { message = "Unsuccess", Success = false });
 
+        }
+
+        [HttpPost]
+        public ActionResult Delete(int id)
+        {
+            var item = db.Orders.Find(id);
+            if (item != null)
+            {
+                db.Orders.Remove(item);
+                db.SaveChanges();
+                return Json(new { success = true });
+            }
+
+            return Json(new { success = false });
         }
     }
 }

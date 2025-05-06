@@ -21,7 +21,7 @@ namespace WebTH.Controllers
         {
             var items = db.Products.Where(x => x.IsHome && x.IsActive).Take(12).ToList();
             return PartialView(items);
-        }
+        }   
 
 
     }

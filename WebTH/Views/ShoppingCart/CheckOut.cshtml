@@ -49,35 +49,39 @@
 
 @section scripts {
     <script>
-        function Onfailure(rs) {
+        function OnFailure(rs) {
             if (!rs.Success) {
-                $('#show_success').html("Bạn mua hàng thất bại! Vui lòng thử lại");
+                $('#show_success').html("Bạn mua hàng thất bại! Xin vui lòng thử lại");
             }
         }
         $(document).ready(function () {
+            $('body').on('change', '#drTypePayment', function () {
+                var type = $(this).val();
+                $('#load_form_payment').hide();
+                if (type == "2") {
+                    $('#load_form_payment').show();
+                }
+            });
             $('#myForm').validate({
                 rules: {
                     'CustomerName': {
-                        required:true
+                        required: true
                     },
                     'Phone': {
-                        required:true
+                        required: true
                     },
                     'Address': {
                         required: true
                     },
                     'Email': {
-                        required: true,
-                        email:true
+                        email: true
                     }
                 },
                 messages: {
-                    'CustomerName': 'Bạn không để trống ô này',
-                    'Phone': 'Bạn không để trống ô này',
-                    'Address': 'Bạn không để trống ô này',
-                    'Email': 'Email chưa hợp lệ',
-
-
+                    'CustomerName': 'Bạn khổng để trống trường này',
+                    'Phone': 'Bạn khổng để trống trường này',
+                    'Address': 'Bạn khổng để trống trường này',
+                    'Email': 'Email chưa hợp lệ'
                 }
             });
         });

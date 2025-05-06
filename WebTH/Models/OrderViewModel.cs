@@ -23,5 +23,7 @@ namespace WebTH.Models
 
         public int TypePayment { get; set; }
 
+        public int TypePaymentVN { get; set; }
+
     }
 }

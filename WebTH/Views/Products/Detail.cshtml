@@ -142,7 +142,7 @@
 
                     <div class="leave-comment p-t-10">
                         @*<h4 class="txt33 p-b-14">Thông tin chi tiết</h4>*@
-                        @Html.Action("_Review", "Review", new { productId=Model.Id})
+                        @Html.Action("_Review", "Review", new { productId = Model.Id })
 
 
                     </div>
@@ -165,7 +165,131 @@
             </div>
         </div>
     </div>
+
 </section>
+
+<section class="related-products">
+    <h3 class="tit3 t-center">Sản phẩm cùng danh mục</h3>
+    <div class="row">
+        @foreach (var relatedProduct in ViewBag.RelatedProducts as List<WebTH.Models.EF.Product>)
+        {
+            var strImage = "";
+            var img = relatedProduct.ProductImage.FirstOrDefault(x => x.IsDefault);
+            if (img != null)
+            {
+                strImage = img.Image;
+            }
+            @*<div class="col-md-4 col-lg-3">
+                <div class="product-item">
+                    <div class="product-image">
+                        <img src="@strImage" alt="@relatedProduct.Title" />
+                    </div>
+                    <h4 class="product-title">
+                        <a href="@Url.Action("Detail", "Products", new { id = relatedProduct.Id })">@relatedProduct.Title</a>
+                    </h4>
+                    <p class="product-price">
+                        @if (relatedProduct.PriceSale > 0)
+                        {
+                            <span class="price-sale">@WebTH.Common.Common.FormatNumber(relatedProduct.PriceSale, 0)</span>
+                            <span class="price-original"><strike>@WebTH.Common.Common.FormatNumber(relatedProduct.Price, 0)</strike></span>
+                        }
+                        else
+                        {
+                            <span class="price">@WebTH.Common.Common.FormatNumber(relatedProduct.Price, 0)</span>
+                        }
+                    </p>
+                </div>
+            </div>*@
+
+            <style>
+                .item-gallery:hover .favorite {
+                    visibility: visible;
+                    opacity: 1;
+                }
+
+                .favorite {
+                    position: absolute;
+                    top: 15px;
+                    right: 15px;
+                    color: #b9b4c7;
+                    width: 24px;
+                    height: 24px;
+                    visibility: hidden;
+                    opacity: 0;
+                }
+
+                .favorite_left {
+                    left: 15px;
+                }
+
+                .favorite.active {
+                    visibility: visible;
+                    opacity: 1;
+                }
+
+
+                    .favorite.active::after {
+                        font-family: 'FontAwesome';
+                        content: '\f004';
+                        color: #fe4c50;
+                    }
+
+                .favorite::after {
+                    font-family: 'FontAwesome';
+                    content: '\f08a';
+                }
+
+                .favorite:hover::after {
+                    color: #fe4c50;
+                }
+            </style>
+            var wishlist = relatedProduct.Wishlists.FirstOrDefault(x => x.UserName == User.Identity.Name);
+            var isWishlist = false;
+            if (wishlist != null)
+            {
+                isWishlist = true;
+            }
+            <div class="item-gallery isotope-item bo-rad-10 hov-img-zoom juice pos-relative @relatedProduct.ProductCategory.Alias">
+
+
+                <a href="/chi-tiet/@relatedProduct.Alias-p@(relatedProduct.Id)">
+                    <img src="@strImage" alt="@relatedProduct.Title" />
+                    <a href="/chi-tiet/@relatedProduct.Alias-p@(relatedProduct.Id)">
+                        <div class="bgTH flex-sb-m shop-blo1">
+                            <h1 class="txt37 m-b-0">@relatedProduct.Title</h1>
+                            @if (relatedProduct.PriceSale > 0)
+                            {
+                                <p class="txt36">@WebTH.Common.Common.FormatNumber(relatedProduct.PriceSale, 0)<span style="color: #d92f24"><strike>@WebTH.Common.Common.FormatNumber(relatedProduct.Price, 0)</strike></span></p>
+
+                            }
+                            else
+                            {
+                                <p class="txt36">@WebTH.Common.Common.FormatNumber(relatedProduct.Price, 0)</p>
+
+                            }
+                        </div>
+                    </a>
+                    <div class="bgTH cart-blo1">
+                        <a href="" class="btnAddToCart" data-id="@relatedProduct.Id"><i class="fa fa-cart-plus fs-24 c-white" aria-hidden="true"></i></a>
+                    </div>
+
+
+                </a>
+                @if (isWishlist == true)
+                {
+                    <div data-id="@relatedProduct.Id" class="favorite favorite_left active"></div>
+
+                }
+                else
+                {
+                    <div data-id="@relatedProduct.Id" class="favorite favorite_left"></div>
+
+                }
+            </div>
+        }
+    </div>
+</section>
+
 
 
 @section scripts {

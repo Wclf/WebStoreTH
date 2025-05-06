@@ -14,10 +14,13 @@
         $.ajax({
             url: '/shoppingcart/addtocart',
             type: 'POST',
-            data: { id: id, quantity, quantity },
+            data: { id: id, quantity: quantity },
             success: function (rs) {
                 if (rs.Success) {
                     $('#checkout_items').html(rs.Count);
+                    alert(rs.msg);
+                }
+                else {
                     alert(rs.msg);
                 }
             }
