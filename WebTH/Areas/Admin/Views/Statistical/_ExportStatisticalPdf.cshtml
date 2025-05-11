@@ -1,0 +1,104 @@
+﻿@model List<WebTH.Models.StatisticalViewModel>
+<!DOCTYPE html>
+<html>
+<head>
+    <meta charset="utf-8" />
+    <title>Báo cáo thống kê doanh thu</title>
+    <style>
+        body {
+            font-family: Arial, Helvetica, sans-serif;
+            font-size: 12px;
+            margin: 20px;
+        }
+
+        h2 {
+            color: #333;
+            text-align: center;
+            margin-bottom: 20px;
+        }
+
+        table {
+            width: 100%;
+            border-collapse: collapse;
+            margin-bottom: 20px;
+        }
+
+        th, td {
+            border: 1px solid #ddd;
+            padding: 8px;
+        }
+
+        th {
+            background-color: #f2f2f2;
+            font-weight: bold;
+        }
+
+        .text-right {
+            text-align: right;
+        }
+
+        .text-center {
+            text-align: center;
+        }
+
+        tr:nth-child(even) {
+            background-color: #f9f9f9;
+        }
+
+        .footer {
+            font-size: 10px;
+            text-align: center;
+            margin-top: 30px;
+            border-top: 1px solid #ddd;
+            padding-top: 10px;
+        }
+
+        .total-row {
+            font-weight: bold;
+            background-color: #eaeaea;
+        }
+    </style>
+</head>
+<body>
+    <h2>Báo cáo thống kê doanh thu</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 50px;">#</th>
+                <th>Thời gian</th>
+                <th class="text-right">Doanh thu (VNĐ)</th>
+                <th class="text-right">Lợi nhuận (VNĐ)</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model != null && Model.Count > 0)
+            {
+                for (int i = 0; i < Model.Count; i++)
+                {
+                    <tr>
+                        <td class="text-center">@(i + 1)</td>
+                        <td>@Model[i].Date</td>
+                        <td class="text-right">@Model[i].DoanhThu.ToString("N0")</td>
+                        <td class="text-right">@Model[i].LoiNhuan.ToString("N0")</td>
+                    </tr>
+                }
+                <tr class="total-row">
+                    <td colspan="2" style="text-align: right;">Tổng cộng</td>
+                    <td class="text-right">@Model.Sum(x => x.DoanhThu).ToString("N0")</td>
+                    <td class="text-right">@Model.Sum(x => x.LoiNhuan).ToString("N0")</td>
+                </tr>
+            }
+            else
+            {
+                <tr>
+                    <td colspan="4" class="text-center">Không có dữ liệu</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <div class="footer">
+        Ngày xuất báo cáo: @DateTime.Now.ToString("dd/MM/yyyy HH:mm:ss")
+    </div>
+</body>
+</html>

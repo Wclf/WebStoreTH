@@ -137,3 +137,11 @@ D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\W
 D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.tableWishlist.resources
 D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.csproj.CopyComplete
 D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\obj\Debug\WebTH.Migrations.AddStatus.resources
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\bin\Select.HtmlToPdf.dll
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\bin\Select.HtmlToPdf.xml
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\bin\Select.Html.dep
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\bin\BouncyCastle.Cryptography.dll
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\bin\itextsharp.dll
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\bin\itextsharp.xmlworker.dll
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\bin\BouncyCastle.Cryptography.xml
+D:\Dai Hoc\Nam 3 Hoc ki 1\Thực tập cơ sở ngành\WebSiteTHTRUEMILK\WebTH\WebTH\bin\itextsharp.xml

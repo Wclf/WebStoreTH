@@ -22,7 +22,7 @@
 
 <!-- Main content -->
 <section class="content">
-
+    <a href="#" id="btnExportPdf" class="btn btn-outline-success">Xuất file pdf</a>
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
@@ -303,13 +303,30 @@
                 datasetFill: false
             };
 
-             barChart2Instance = new Chart(ctx, {
+            barChart2Instance = new Chart(ctx, {
                 type: 'bar',
                 data: barChartData,
                 options: barChartOptions
             });
         }
-        
+
+    </script>
+    <script>
+        $(document).ready(function () {
+            $('#btnExportPdf').on('click', function (e) {
+                e.preventDefault();
+
+                // Phương pháp tốt nhất: tạo iframe ẩn để tải xuống
+                var iframe = document.createElement('iframe');
+                iframe.style.display = 'none';
+                iframe.src = '/Statistical/ExportPdf';
+                document.body.appendChild(iframe);
+
+                // Hoặc đơn giản hơn (mở tab mới)
+                // window.open('/Statistical/ExportPdf', '_blank');
+            });
+        });
+
     </script>
 }
 
