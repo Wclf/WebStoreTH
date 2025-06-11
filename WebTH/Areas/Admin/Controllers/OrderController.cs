@@ -5,6 +5,7 @@ using System.Web;
 using System.Web.Mvc;
 using WebTH.Models;
 using PagedList;
+using Rotativa;
 
 namespace WebTH.Areas.Admin.Controllers
 {
@@ -91,6 +92,22 @@ namespace WebTH.Areas.Admin.Controllers
             }
 
             return Json(new { success = false });
+        }
+
+        public ActionResult ExportInvoice(int id)
+        {
+            var order = db.Orders.Include("OrderDetails.Product").FirstOrDefault(x => x.Id == id);
+            if (order == null)
+            {
+                return HttpNotFound();
+            }
+
+            return new ViewAsPdf("ExportInvoice", order)
+            {
+                FileName = $"HoaDon_{order.Code}.pdf",
+                PageSize = Rotativa.Options.Size.A4,
+                PageOrientation = Rotativa.Options.Orientation.Portrait
+            };
         }
     }
 }

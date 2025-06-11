@@ -1,4 +1,4 @@
-﻿@model List<WebTH.Models.StatisticalViewModel>
+﻿@model WebTH.Models.ExportReportViewModel
 <!DOCTYPE html>
 <html>
 <head>
@@ -6,38 +6,42 @@
     <title>Báo cáo thống kê doanh thu</title>
     <style>
         body {
-            font-family: Arial, Helvetica, sans-serif;
-            font-size: 12px;
-            margin: 20px;
+            font-family: Arial, sans-serif;
+            font-size: 13px;
+            margin: 30px;
+            color: #333;
         }
 
         h2 {
-            color: #333;
+            color: #2c3e50;
             text-align: center;
-            margin-bottom: 20px;
+            margin: 30px 0 15px;
+            border-bottom: 2px solid #ddd;
+            padding-bottom: 5px;
         }
 
         table {
             width: 100%;
             border-collapse: collapse;
-            margin-bottom: 20px;
+            margin-bottom: 25px;
         }
 
         th, td {
-            border: 1px solid #ddd;
-            padding: 8px;
+            border: 1px solid #ccc;
+            padding: 8px 10px;
         }
 
         th {
-            background-color: #f2f2f2;
+            background-color: #ecf0f1;
             font-weight: bold;
+            text-align: center;
         }
 
-        .text-right {
+        td.text-right {
             text-align: right;
         }
 
-        .text-center {
+        td.text-center {
             text-align: center;
         }
 
@@ -45,22 +49,23 @@
             background-color: #f9f9f9;
         }
 
-        .footer {
-            font-size: 10px;
-            text-align: center;
-            margin-top: 30px;
-            border-top: 1px solid #ddd;
-            padding-top: 10px;
-        }
-
         .total-row {
             font-weight: bold;
-            background-color: #eaeaea;
+            background-color: #dfe6e9;
+        }
+
+        .footer {
+            font-size: 11px;
+            text-align: right;
+            color: #666;
+            border-top: 1px solid #ccc;
+            padding-top: 8px;
+            margin-top: 30px;
         }
     </style>
 </head>
 <body>
-    <h2>Báo cáo thống kê doanh thu</h2>
+    <h2>BÁO CÁO THỐNG KÊ DOANH THU</h2>
     <table>
         <thead>
             <tr>
@@ -71,27 +76,64 @@
             </tr>
         </thead>
         <tbody>
-            @if (Model != null && Model.Count > 0)
+            @if (Model.Statistics != null && Model.Statistics.Count > 0)
             {
-                for (int i = 0; i < Model.Count; i++)
+                for (int i = 0; i < Model.Statistics.Count; i++)
                 {
                     <tr>
                         <td class="text-center">@(i + 1)</td>
-                        <td>@Model[i].Date</td>
-                        <td class="text-right">@Model[i].DoanhThu.ToString("N0")</td>
-                        <td class="text-right">@Model[i].LoiNhuan.ToString("N0")</td>
+                        <td>@Model.Statistics[i].Date</td>
+                        <td class="text-right">@Model.Statistics[i].DoanhThu.ToString("N0")</td>
+                        <td class="text-right">@Model.Statistics[i].LoiNhuan.ToString("N0")</td>
                     </tr>
                 }
                 <tr class="total-row">
-                    <td colspan="2" style="text-align: right;">Tổng cộng</td>
-                    <td class="text-right">@Model.Sum(x => x.DoanhThu).ToString("N0")</td>
-                    <td class="text-right">@Model.Sum(x => x.LoiNhuan).ToString("N0")</td>
+                    <td colspan="2" class="text-right">Tổng cộng</td>
+                    <td class="text-right">@Model.Statistics.Sum(x => x.DoanhThu).ToString("N0")</td>
+                    <td class="text-right">@Model.Statistics.Sum(x => x.LoiNhuan).ToString("N0")</td>
                 </tr>
             }
             else
             {
                 <tr>
                     <td colspan="4" class="text-center">Không có dữ liệu</td>
+                </tr>
+            }
+        </tbody>
+    </table>
+
+    <h2>DANH SÁCH SẢN PHẨM CÒN TRONG KHO</h2>
+    <table>
+        <thead>
+            <tr>
+                <th style="width: 50px;">#</th>
+                <th>Tên sản phẩm</th>
+                <th class="text-right">Số lượng</th>
+                <th class="text-right">Giá bán</th>
+                <th class="text-right">Giá khuyến mại</th>
+            </tr>
+        </thead>
+        <tbody>
+            @if (Model.ProductsInStock != null && Model.ProductsInStock.Count > 0)
+            {
+                for (int i = 0; i < Model.ProductsInStock.Count; i++)
+                {
+                    var item = Model.ProductsInStock[i];
+                    <tr>
+                        <td class="text-center">@(i + 1)</td>
+                        <td>@item.Title</td>
+                        <td class="text-right">@item.Quantity</td>
+                        <td class="text-right">@item.Price.ToString("N0")</td>
+                        <td class="text-right">
+                            @(item.PriceSale.HasValue ? item.PriceSale.Value.ToString("N0") : "")
+                        </td>
+                    </tr>
+                }
+            }
+            else
+            {
+                <tr>
+                    <td colspan="5" class="text-center">Không có sản phẩm trong kho</td>
                 </tr>
             }
         </tbody>

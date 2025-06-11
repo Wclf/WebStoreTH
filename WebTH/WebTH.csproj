@@ -68,6 +68,9 @@
     <Reference Include="PagedList.Mvc, Version=4.5.0.0, Culture=neutral, PublicKeyToken=abbb863e9397c5e1, processorArchitecture=MSIL">
       <HintPath>..\packages\PagedList.Mvc.4.5.0.0\lib\net40\PagedList.Mvc.dll</HintPath>
     </Reference>
+    <Reference Include="Rotativa, Version=1.0.0.0, Culture=neutral, processorArchitecture=MSIL">
+      <HintPath>..\packages\Rotativa.1.7.3\lib\net461\Rotativa.dll</HintPath>
+    </Reference>
     <Reference Include="Select.HtmlToPdf, Version=18.1.0.0, Culture=neutral, PublicKeyToken=e0ae9f6e27a97018, processorArchitecture=MSIL">
       <HintPath>..\packages\Select.HtmlToPdf.18.1.0\lib\net40\Select.HtmlToPdf.dll</HintPath>
     </Reference>
@@ -203,6 +206,7 @@
     <Compile Include="Areas\Admin\Controllers\ProductCategoryController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductImageController.cs" />
     <Compile Include="Areas\Admin\Controllers\ProductsController.cs" />
+    <Compile Include="Areas\Admin\Controllers\PromotionController.cs" />
     <Compile Include="Areas\Admin\Controllers\RoleController.cs" />
     <Compile Include="Areas\Admin\Controllers\SettingSystemController.cs" />
     <Compile Include="Areas\Admin\Controllers\StatisticalController.cs" />
@@ -210,6 +214,7 @@
     <Compile Include="Controllers\AboutController.cs" />
     <Compile Include="Controllers\AccountController.cs" />
     <Compile Include="Controllers\AdviseController.cs" />
+    <Compile Include="Controllers\ChatBotAIController.cs" />
     <Compile Include="Controllers\ContactController.cs" />
     <Compile Include="Controllers\HomeController.cs" />
     <Compile Include="Controllers\ManageController.cs" />
@@ -223,93 +228,13 @@
     <Compile Include="Global.asax.cs">
       <DependentUpon>Global.asax</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312041613357_CreatedDatabase.cs" />
-    <Compile Include="Migrations\202312041613357_CreatedDatabase.Designer.cs">
-      <DependentUpon>202312041613357_CreatedDatabase.cs</DependentUpon>
+    <Compile Include="Migrations\202505312216223_Init.cs" />
+    <Compile Include="Migrations\202505312216223_Init.Designer.cs">
+      <DependentUpon>202505312216223_Init.cs</DependentUpon>
     </Compile>
-    <Compile Include="Migrations\202312050511572_UpdateCategory.cs" />
-    <Compile Include="Migrations\202312050511572_UpdateCategory.Designer.cs">
-      <DependentUpon>202312050511572_UpdateCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312050532206_UpdateData.cs" />
-    <Compile Include="Migrations\202312050532206_UpdateData.Designer.cs">
-      <DependentUpon>202312050532206_UpdateData.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312142037205_UpdateActive.cs" />
-    <Compile Include="Migrations\202312142037205_UpdateActive.Designer.cs">
-      <DependentUpon>202312142037205_UpdateActive.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312142317087_ChangeLength.cs" />
-    <Compile Include="Migrations\202312142317087_ChangeLength.Designer.cs">
-      <DependentUpon>202312142317087_ChangeLength.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312150341178_UpdateProductCategory.cs" />
-    <Compile Include="Migrations\202312150341178_UpdateProductCategory.Designer.cs">
-      <DependentUpon>202312150341178_UpdateProductCategory.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312181705061_update1206.cs" />
-    <Compile Include="Migrations\202312181705061_update1206.Designer.cs">
-      <DependentUpon>202312181705061_update1206.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312181716273_Update12061.cs" />
-    <Compile Include="Migrations\202312181716273_Update12061.Designer.cs">
-      <DependentUpon>202312181716273_Update12061.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312210721293_UpdatePayment.cs" />
-    <Compile Include="Migrations\202312210721293_UpdatePayment.Designer.cs">
-      <DependentUpon>202312210721293_UpdatePayment.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312211050367_Updateadress.cs" />
-    <Compile Include="Migrations\202312211050367_Updateadress.Designer.cs">
-      <DependentUpon>202312211050367_Updateadress.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312211226264_Createtbthongke.cs" />
-    <Compile Include="Migrations\202312211226264_Createtbthongke.Designer.cs">
-      <DependentUpon>202312211226264_Createtbthongke.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312211237086_Createtbthongke2.cs" />
-    <Compile Include="Migrations\202312211237086_Createtbthongke2.Designer.cs">
-      <DependentUpon>202312211237086_Createtbthongke2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312220911543_UpdateEmail.cs" />
-    <Compile Include="Migrations\202312220911543_UpdateEmail.Designer.cs">
-      <DependentUpon>202312220911543_UpdateEmail.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312221027428_updateoder.cs" />
-    <Compile Include="Migrations\202312221027428_updateoder.Designer.cs">
-      <DependentUpon>202312221027428_updateoder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312221037569_updateorder2.cs" />
-    <Compile Include="Migrations\202312221037569_updateorder2.Designer.cs">
-      <DependentUpon>202312221037569_updateorder2.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202312260728049_updatesubcribe.cs" />
-    <Compile Include="Migrations\202312260728049_updatesubcribe.Designer.cs">
-      <DependentUpon>202312260728049_updatesubcribe.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202401021258510_UpdateOriginalPrice.cs" />
-    <Compile Include="Migrations\202401021258510_UpdateOriginalPrice.Designer.cs">
-      <DependentUpon>202401021258510_UpdateOriginalPrice.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202401090828429_InsertCustomerIdOder.cs" />
-    <Compile Include="Migrations\202401090828429_InsertCustomerIdOder.Designer.cs">
-      <DependentUpon>202401090828429_InsertCustomerIdOder.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202401121135589_Review_Table.cs" />
-    <Compile Include="Migrations\202401121135589_Review_Table.Designer.cs">
-      <DependentUpon>202401121135589_Review_Table.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202401121227318_Table_Review_Edit_ForeginKey.cs" />
-    <Compile Include="Migrations\202401121227318_Table_Review_Edit_ForeginKey.Designer.cs">
-      <DependentUpon>202401121227318_Table_Review_Edit_ForeginKey.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202401131730377_tableWishlist.cs" />
-    <Compile Include="Migrations\202401131730377_tableWishlist.Designer.cs">
-      <DependentUpon>202401131730377_tableWishlist.cs</DependentUpon>
-    </Compile>
-    <Compile Include="Migrations\202505050210004_AddStatus.cs" />
-    <Compile Include="Migrations\202505050210004_AddStatus.Designer.cs">
-      <DependentUpon>202505050210004_AddStatus.cs</DependentUpon>
+    <Compile Include="Migrations\202505312245436_UpdatetablePromotion.cs" />
+    <Compile Include="Migrations\202505312245436_UpdatetablePromotion.Designer.cs">
+      <DependentUpon>202505312245436_UpdatetablePromotion.cs</DependentUpon>
     </Compile>
     <Compile Include="Migrations\Configuration.cs" />
     <Compile Include="Models\AccountViewModels.cs" />
@@ -327,11 +252,13 @@
     <Compile Include="Models\EF\Product.cs" />
     <Compile Include="Models\EF\ProductCategory.cs" />
     <Compile Include="Models\EF\ProductImage.cs" />
+    <Compile Include="Models\EF\Promotion.cs" />
     <Compile Include="Models\EF\ReviewProduct.cs" />
     <Compile Include="Models\EF\Subscribe.cs" />
     <Compile Include="Models\EF\SystemSetting.cs" />
     <Compile Include="Models\EF\ThongKe.cs" />
     <Compile Include="Models\EF\Wishlist.cs" />
+    <Compile Include="Models\ExportReportViewModel.cs" />
     <Compile Include="Models\IdentityModels.cs" />
     <Compile Include="Models\ManageViewModels.cs" />
     <Compile Include="Models\OrderViewModel.cs" />
@@ -3844,6 +3771,10 @@
     <Content Include="fonts\glyphicons-halflings-regular.svg" />
     <Content Include="Global.asax" />
     <Content Include="Content\Site.css" />
+    <Content Include="Rotativa\help-wkhtmltoimage.txt" />
+    <Content Include="Rotativa\help-wkhtmltopdf.txt" />
+    <Content Include="Rotativa\wkhtmltoimage.exe" />
+    <Content Include="Rotativa\wkhtmltopdf.exe" />
     <Content Include="Scripts\autoNumeric-1.9.45.js" />
     <Content Include="Scripts\bootstrap.js" />
     <Content Include="Scripts\bootstrap.min.js" />
@@ -4028,6 +3959,12 @@
     <Content Include="Content\assets\plugins\moment\moment-with-locales.min.js.map" />
     <Content Include="Content\assets\plugins\moment\moment.min.js.map" />
     <Content Include="Areas\Admin\Views\Statistical\_ExportStatisticalPdf.cshtml" />
+    <Content Include="Areas\Admin\Views\Promotion\Add.cshtml" />
+    <Content Include="Areas\Admin\Views\Promotion\Index.cshtml" />
+    <Content Include="Areas\Admin\Views\Promotion\Edit.cshtml" />
+    <Content Include="Areas\Admin\Views\ProductCategory\Edit.cshtml" />
+    <Content Include="App_Browsers\qt.browser" />
+    <Content Include="Areas\Admin\Views\Order\ExportInvoice.cshtml" />
     <None Include="Scripts\jquery-3.4.1.intellisense.js" />
     <Content Include="Scripts\jquery-3.4.1.js" />
     <Content Include="Scripts\jquery-3.4.1.min.js" />
@@ -4103,11 +4040,13 @@
     <Content Include="Views\Wishlist\Index.cshtml" />
     <Content Include="Views\ShoppingCart\VnpayReturn.cshtml" />
     <Content Include="Views\Review\LichSuDonHang.cshtml" />
+    <Content Include="Views\ChatBotAI\Index.cshtml" />
   </ItemGroup>
   <ItemGroup>
     <Folder Include="App_Data\" />
     <Folder Include="Areas\Admin\Data\" />
     <Folder Include="Areas\Admin\Views\Base\" />
+    <Folder Include="Areas\Admin\Views\ChatBot\" />
     <Folder Include="Content\ckfinder\userfiles\" />
     <Folder Include="Resource\" />
     <Folder Include="Uploads\files\" />
@@ -4128,71 +4067,11 @@
     <Content Include="Scripts\jquery-3.4.1.min.map" />
   </ItemGroup>
   <ItemGroup>
-    <EmbeddedResource Include="Migrations\202312041613357_CreatedDatabase.resx">
-      <DependentUpon>202312041613357_CreatedDatabase.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202505312216223_Init.resx">
+      <DependentUpon>202505312216223_Init.cs</DependentUpon>
     </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312050511572_UpdateCategory.resx">
-      <DependentUpon>202312050511572_UpdateCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312050532206_UpdateData.resx">
-      <DependentUpon>202312050532206_UpdateData.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312142037205_UpdateActive.resx">
-      <DependentUpon>202312142037205_UpdateActive.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312142317087_ChangeLength.resx">
-      <DependentUpon>202312142317087_ChangeLength.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312150341178_UpdateProductCategory.resx">
-      <DependentUpon>202312150341178_UpdateProductCategory.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312181705061_update1206.resx">
-      <DependentUpon>202312181705061_update1206.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312181716273_Update12061.resx">
-      <DependentUpon>202312181716273_Update12061.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312210721293_UpdatePayment.resx">
-      <DependentUpon>202312210721293_UpdatePayment.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312211050367_Updateadress.resx">
-      <DependentUpon>202312211050367_Updateadress.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312211226264_Createtbthongke.resx">
-      <DependentUpon>202312211226264_Createtbthongke.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312211237086_Createtbthongke2.resx">
-      <DependentUpon>202312211237086_Createtbthongke2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312220911543_UpdateEmail.resx">
-      <DependentUpon>202312220911543_UpdateEmail.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312221027428_updateoder.resx">
-      <DependentUpon>202312221027428_updateoder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312221037569_updateorder2.resx">
-      <DependentUpon>202312221037569_updateorder2.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202312260728049_updatesubcribe.resx">
-      <DependentUpon>202312260728049_updatesubcribe.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202401021258510_UpdateOriginalPrice.resx">
-      <DependentUpon>202401021258510_UpdateOriginalPrice.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202401090828429_InsertCustomerIdOder.resx">
-      <DependentUpon>202401090828429_InsertCustomerIdOder.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202401121135589_Review_Table.resx">
-      <DependentUpon>202401121135589_Review_Table.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202401121227318_Table_Review_Edit_ForeginKey.resx">
-      <DependentUpon>202401121227318_Table_Review_Edit_ForeginKey.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202401131730377_tableWishlist.resx">
-      <DependentUpon>202401131730377_tableWishlist.cs</DependentUpon>
-    </EmbeddedResource>
-    <EmbeddedResource Include="Migrations\202505050210004_AddStatus.resx">
-      <DependentUpon>202505050210004_AddStatus.cs</DependentUpon>
+    <EmbeddedResource Include="Migrations\202505312245436_UpdatetablePromotion.resx">
+      <DependentUpon>202505312245436_UpdatetablePromotion.cs</DependentUpon>
     </EmbeddedResource>
   </ItemGroup>
   <PropertyGroup>

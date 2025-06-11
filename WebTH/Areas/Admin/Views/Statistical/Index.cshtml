@@ -22,7 +22,13 @@
 
 <!-- Main content -->
 <section class="content">
-    <a href="#" id="btnExportPdf" class="btn btn-outline-success">Xuất file pdf</a>
+    @*<a href="#" id="btnExportPdf" class="btn btn-outline-success">Xuất file pdf</a>*@
+    <!-- Nút xuất PDF và chọn ngày -->
+    <div class="form-inline mb-3">
+        <label for="exportDate" class="mr-2">Chọn ngày:</label>
+        <input type="date" id="exportDate" class="form-control mr-2" />
+        <button id="btnExportPdf" class="btn btn-outline-success">Xuất file PDF</button>
+    </div>
     <!-- Default box -->
     <div class="card">
         <div class="card-header">
@@ -315,15 +321,15 @@
         $(document).ready(function () {
             $('#btnExportPdf').on('click', function (e) {
                 e.preventDefault();
+                var exportDate = $('#exportDate').val(); // yyyy-MM-dd
 
-                // Phương pháp tốt nhất: tạo iframe ẩn để tải xuống
-                var iframe = document.createElement('iframe');
-                iframe.style.display = 'none';
-                iframe.src = '/Statistical/ExportPdf';
-                document.body.appendChild(iframe);
+                if (!exportDate) {
+                    alert("Vui lòng chọn ngày trước khi xuất PDF!");
+                    return;
+                }
 
-                // Hoặc đơn giản hơn (mở tab mới)
-                // window.open('/Statistical/ExportPdf', '_blank');
+                var url = '/Statistical/ExportPdf?selectedDate=' + exportDate;
+                window.open(url, '_blank');
             });
         });
 

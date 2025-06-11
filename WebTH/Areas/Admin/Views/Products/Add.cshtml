@@ -88,6 +88,11 @@
                                         @Html.ValidationMessageFor(x => x.ProductCategoryId, null, new { @class = "text-danger" })
                                     </div>
                                     <div class="form-group">
+                                        <label for="exampleInputEmail1">Khuyến mại</label>
+                                        @Html.DropDownListFor(x => x.PromotionId, ViewBag.Promotion as SelectList, "-chọn loại giảm giá", new { @class = "form-control", id = "PromotionId",  @placeholder = "Mô tả" })
+                                        @Html.ValidationMessageFor(x => x.PromotionId, null, new { @class = "text-danger" })
+                                    </div>
+                                    <div class="form-group">
                                         <label for="exampleInputEmail1">Mô tả</label>
                                         @Html.TextAreaFor(x => x.Description, new { @class = "form-control", @placeholder = "Mô tả" })
                                         @Html.ValidationMessageFor(x => x.Description, null, new { @class = "text-danger" })
@@ -116,7 +121,7 @@
                                         <div class="col-3">
                                             <div class="form-group">
                                                 <label for="exampleInputEmail1">Giá Khuyến mại</label>
-                                                <input type="text" name="demoPriceSale"  id="demoPriceSale"  value="0" class="form-control auto" data-a-dec="," data-a-sep=".">
+                                                <input type="text" readonly name="demoPriceSale" id="demoPriceSale" value="0" class="form-control auto" data-a-dec="," data-a-sep=".">
                                                 @Html.HiddenFor(x => x.PriceSale, new { @class = "form-control", @placeholder = "Khuyến mãi" })
                                                 @Html.ValidationMessageFor(x => x.PriceSale, null, new { @class = "text-danger" })
                                             </div>
@@ -321,5 +326,35 @@
             //    });
             //});
         }
+        function updatePriceSaleByPromotion() {
+            var price = $('#demoPrice').autoNumeric('get');
+            var promotionId = $('#PromotionId').val(); // ID dropdown Promotion
+
+            if (promotionId && price) {
+                $.ajax({
+                    url: '/admin/products/GetDiscountPercent',
+                    type: 'GET',
+                    data: { promotionId: promotionId },
+                    success: function (res) {
+                        if (res.success) {
+                            var discount = res.discountPercent;
+                            var salePrice = price - (price * discount / 100);
+                            $('#demoPriceSale').autoNumeric('set', salePrice);
+                            $('#PriceSale').val(salePrice);
+                        }
+                    }
+                });
+            }
+        }
+
+        $(document).ready(function () {
+            $('#PromotionId').change(function () {
+                updatePriceSaleByPromotion();
+            });
+
+            $('#demoPrice').on('change keyup blur', function () {
+                updatePriceSaleByPromotion();
+            });
+        });
     </script>
 }

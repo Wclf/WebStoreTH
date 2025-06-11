@@ -221,18 +221,21 @@ namespace WebTH.Controllers
                     db.Orders.Add(order);
                     db.SaveChanges();
 
-
-                    //foreach (var sanpham in cart.Items)
-                    //{
-                    //    foreach (var mdsp in db.Products)
-                    //    {
-                    //        if (sanpham.ProductId == mdsp.Id)
-                    //        {
-                    //            mdsp.Quantity = mdsp.Quantity - sanpham.Quantity;
-                    //        }
-                    //    }
-                    //}
-                    //db.SaveChanges();
+                    // Cập nhật tồn kho sản phẩm
+                    foreach (var sanpham in cart.Items)
+                    {
+                        var mdsp = db.Products.FirstOrDefault(x => x.Id == sanpham.ProductId);
+                        if (mdsp != null)
+                        {
+                            mdsp.Quantity -= sanpham.Quantity;
+                            if (mdsp.Quantity < 0)
+                            {
+                                mdsp.Quantity = 0;
+                            }
+                            db.Entry(mdsp).State = System.Data.Entity.EntityState.Modified;
+                        }
+                    }
+                    db.SaveChanges();
 
 
                     //send mail cho khach hang 
@@ -384,21 +387,44 @@ namespace WebTH.Controllers
             }
                 return Json(code);
             }
-        
+
         [AllowAnonymous]
         [HttpPost]
         public ActionResult Update(int id, int quantity)
         {
+            var code = new { Success = false, msg = "", Count = 0 };
             ShoppingCart cart = (ShoppingCart)Session["Cart"];
             if (cart != null)
             {
-                cart.UpdateQuantity(id,quantity);
-                return Json(new { Success = true });
+                var checkProduct = cart.Items.FirstOrDefault(x => x.ProductId == id);
+                var productDb = db.Products.FirstOrDefault(x => x.Id == id);
+
+                if (checkProduct != null && productDb != null)
+                {
+                    if (quantity > productDb.Quantity)
+                    {
+                        code = new
+                        {
+                            Success = false,
+                            msg = "Sản phẩm trong kho không đủ! Còn lại " + productDb.Quantity,
+                            Count = cart.Items.Count
+                        };
+                    }
+                    else
+                    {
+                        cart.UpdateQuantity(id, quantity);
+                        code = new
+                        {
+                            Success = true,
+                            msg = "Cập nhật thành công!",
+                            Count = cart.Items.Count
+                        };
+                    }
+                }
             }
-            return Json(new { Success = false });
-
-
+            return Json(code);
         }
+
 
         [AllowAnonymous]
         [HttpPost]

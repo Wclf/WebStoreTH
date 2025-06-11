@@ -34,6 +34,7 @@ namespace WebTH.Areas.Admin.Controllers
         public ActionResult Add()
         {
             ViewBag.ProductCategory = new SelectList(db.ProductCategories.ToList(), "Id", "Title");
+            ViewBag.Promotion = new SelectList(db.Promotions.ToList(), "Id", "Title");
             return View();
         }
 
@@ -86,9 +87,21 @@ namespace WebTH.Areas.Admin.Controllers
             return View(model);
         }
 
+        [HttpGet]
+        public ActionResult GetDiscountPercent(int promotionId)
+        {
+            var promotion = db.Promotions.FirstOrDefault(x => x.Id == promotionId);
+            if (promotion != null)
+            {
+                return Json(new { success = true, discountPercent = promotion.DiscountPercent }, JsonRequestBehavior.AllowGet);
+            }
+            return Json(new { success = false }, JsonRequestBehavior.AllowGet);
+        }
+
         public ActionResult Edit(int id)
         {
             ViewBag.ProductCategory = new SelectList(db.ProductCategories.ToList(), "Id", "Title");
+            ViewBag.Promotion = new SelectList(db.Promotions.ToList(), "Id", "Title");
             var item = db.Products.Find(id);
             return View(item);
         }

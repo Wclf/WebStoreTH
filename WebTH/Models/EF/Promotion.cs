@@ -37,5 +37,8 @@ namespace WebTH.Models.EF
         public DateTime ModifiedDate { get; set; }
 
         public virtual ICollection<Product> Products { get; set; }
+
+        [NotMapped]
+        public List<int> SelectedProductIds { get; set; }
     }
 }

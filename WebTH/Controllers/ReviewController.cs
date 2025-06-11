@@ -49,7 +49,10 @@ namespace WebTH.Controllers
                 var userStore = new UserStore<ApplicationUser>(new ApplicationDbContext());
                 var userManager = new UserManager<ApplicationUser>(userStore);
                 var user = userManager.FindByName(User.Identity.Name);
-                var items = _db.Orders.Where(x=>x.CustomerId==user.Id).ToList();
+                var items = _db.Orders
+                    .Where(x => x.CustomerId == user.Id)
+                    .OrderByDescending(x => x.CreatedDate) // đơn hàng mới nhất lên trước
+                    .ToList();
                 return PartialView(items);
             }
             return PartialView();

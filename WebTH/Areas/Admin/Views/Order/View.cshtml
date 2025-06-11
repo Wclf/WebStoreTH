@@ -29,6 +29,9 @@
     <div class="card">
         <div class="card-header">
             <h3 class="card-title">Chi tiết đơn hàng</h3>
+            <a href="@Url.Action("ExportInvoice", "Order", new { id = Model.Id })" target="_blank" class="btn btn-warning">
+                Xuất hóa đơn
+            </a>
         </div>
         <div class="card-body">
             <div class="row">

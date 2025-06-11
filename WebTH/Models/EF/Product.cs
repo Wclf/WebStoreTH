@@ -61,6 +61,8 @@ namespace WebTH.Models.EF
         public bool IsActive { get; set; }
 
         public int ProductCategoryId { get; set; }
+        public int? PromotionId { get; set; }
+
         [StringLength(250)]
         public string SeoTitle { get; set; }
         [StringLength(500)]
@@ -69,6 +71,9 @@ namespace WebTH.Models.EF
         public string SeoKeywords { get; set; }
 
         public virtual ProductCategory ProductCategory { get; set; }
+
+        public virtual Promotion Promotion{ get; set; }
+
 
         public virtual ICollection<ProductImage> ProductImage { get; set; }
 

@@ -1,0 +1,155 @@
+﻿
+@{
+    ViewBag.Title = "Trò chuyện với AI";
+    Layout = "~/Views/Shared/_Layout.cshtml";
+}
+
+<section class="bg-title-page flex-c-m p-t-160 p-b-80 p-l-15 p-r-15"
+         style="background-image: url(/Content/assets/images/bg-cover-video-2.jpg)">
+    <h2 class="tit6 t-center">Chat Bot</h2>
+</section>
+
+<style>
+    .chat-box {
+        background: #f5f5f5;
+        padding: 15px;
+        border-radius: 5px;
+        height: 400px;
+        overflow-y: auto;
+        margin-bottom: 20px;
+    }
+
+    .message {
+        max-width: 70%;
+        padding: 10px 15px;
+        margin: 8px 0;
+        border-radius: 15px;
+        clear: both;
+        display: inline-block;
+    }
+
+    .user-message {
+        background-color: #007bff;
+        color: #fff;
+        float: right;
+        text-align: right;
+    }
+
+    .bot-message {
+        background-color: #e0e0e0;
+        color: #000;
+        float: left;
+        text-align: left;
+    }
+
+    .chat-input-area {
+        display: flex;
+        gap: 10px;
+    }
+
+        .chat-input-area textarea {
+            flex: 1;
+        }
+
+    .typing {
+        display: flex;
+        align-items: center;
+        gap: 6px;
+        margin: 8px 0;
+        float: left;
+    }
+
+        .typing span {
+            display: inline-block;
+            background-color: #999;
+            border-radius: 50%;
+            width: 8px;
+            height: 8px;
+            animation: bounce 1.4s infinite ease-in-out both;
+        }
+
+            .typing span:nth-child(1) {
+                animation-delay: 0s;
+            }
+
+            .typing span:nth-child(2) {
+                animation-delay: 0.2s;
+            }
+
+            .typing span:nth-child(3) {
+                animation-delay: 0.4s;
+            }
+    .wrapper-chat {
+        max-width: 800px; /* Giới hạn chiều rộng khung chat */
+        margin: 0 auto; /* Căn giữa */
+        padding: 0 15px; /* Padding hai bên nếu thu nhỏ màn hình */
+    }
+@@keyframes bounce {
+    0%, 80%, 100% {
+        transform: translateY(0);
+    }
+    40% {
+        transform: translateY(-6px);
+    }
+}
+</style>
+
+<div class="wrapper-chat">
+    <div id="chat-container" class="chat-box"></div>
+
+    <div class="chat-input-area">
+        <textarea id="message" rows="2" class="form-control" placeholder="Nhập tin nhắn..."></textarea>
+        <button id="sendBtn" class="btn btn-primary">Gửi</button>
+    </div>
+</div>
+
+
+@section scripts {
+    <script>
+        // Gửi khi nhấn nút
+        $('#sendBtn').click(function () {
+            var userMessage = $('#message').val().trim();
+            if (!userMessage) return;
+
+            $('#chat-container').append('<div class="message user-message">' + userMessage + '</div>');
+            $('#message').val('');
+
+            // Hiệu ứng typing trước khi hiện nội dung thật
+            const typing = $('<div class="message bot-message typing"><span></span><span></span><span></span></div>');
+            $('#chat-container').append(typing);
+            $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight);
+
+            $.post('/ChatBotAI/AskAI', { message: userMessage }, function (res) {
+                typing.remove(); // Xoá hiệu ứng typing
+                typeBotReply(res.reply); // Gọi hàm hiện từng chữ
+            });
+        });
+
+        // Gửi khi nhấn Enter
+        $('#message').keypress(function (e) {
+            if (e.which === 13 && !e.shiftKey) {
+                e.preventDefault();
+                $('#sendBtn').click();
+            }
+        });
+
+        // Hàm hiện từng chữ
+        function typeBotReply(text) {
+            const container = $('<div class="message bot-message"></div>');
+            $('#chat-container').append(container);
+
+            let i = 0;
+            const speed = 15;
+            const interval = setInterval(function () {
+                if (i < text.length) {
+                    const char = text[i] === '\n' ? '<br>' : text[i];
+                    container.append(char);
+                    i++;
+                    $('#chat-container').scrollTop($('#chat-container')[0].scrollHeight);
+                } else {
+                    clearInterval(interval);
+                }
+            }, speed);
+        }
+    </script>
+}

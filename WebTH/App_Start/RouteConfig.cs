@@ -29,17 +29,17 @@ namespace WebTH
 
             routes.MapRoute(
                 name: "Advise",
-                url: "tu-van",
+                url: "bai-tu-van",
                 defaults: new { controller = "Advise", action = "Index", alias = UrlParameter.Optional },
                 namespaces: new[] { "WebTH.Controllers" }
             );
 
-            routes.MapRoute(
-                name: "ProductAdv",
-                url: "san-pham",
-                defaults: new { controller = "ProductAdv", action = "Index", alias = UrlParameter.Optional },
-                namespaces: new[] { "WebTH.Controllers" }
-            );
+            //routes.MapRoute(
+            //    name: "ProductAdv",
+            //    url: "san-pham",
+            //    defaults: new { controller = "ProductAdv", action = "Index", alias = UrlParameter.Optional },
+            //    namespaces: new[] { "WebTH.Controllers" }
+            //);
 
             routes.MapRoute(
                 name: "About",
@@ -78,10 +78,17 @@ namespaces: new[] { "WebTH.Controllers" }
 
             routes.MapRoute(
                 name: "Products",
-                url: "cua-hang",
+                url: "san-pham",
                 defaults: new { controller = "Products", action = "Index", alias = UrlParameter.Optional },
                 namespaces: new[] { "WebTH.Controllers" }
             );
+
+            routes.MapRoute(
+    name: "ChatBotAI",
+    url: "chat-bot",
+    defaults: new { controller = "ChatBotAI", action = "Index", alias = UrlParameter.Optional },
+    namespaces: new[] { "WebTH.Controllers" }
+);
 
             routes.MapRoute(
                 name: "Default",

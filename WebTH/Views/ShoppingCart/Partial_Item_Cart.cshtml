@@ -57,11 +57,11 @@
             <th colspan="6" class="text-right"></th>
             <th></th>
 
-                <th class="text-center">
-                    <a href="#" class="btn btn-sm btn-danger btnDeleteAll">Xóa</a>
-                    <a href="/thanh-toan" class="btn btn-sm btn-success">Thanh toán</a>
+            <th class="text-center">
+                <a href="#" class="btn btn-sm btn-danger btnDeleteAll">Xóa</a>
+                <a href="/thanh-toan" class="btn btn-sm btn-success">Thanh toán</a>
 
-                </th>
+            </th>
 
 
         </tr>
@@ -76,3 +76,29 @@
         </tr>
     }
 </table>
+
+@section scripts {
+    <script>
+        $(document).ready(function () {
+            $('body').on('click', '.btnUpdate', function () {
+                var id = $(this).data("id");
+                var quantity = $("#Quantity_" + id).val();
+                $.ajax({
+                    url: '/ShoppingCart/Update',
+                    type: 'POST',
+                    data: { id: id, quantity: quantity },
+                    success: function (res) {
+                        if (res.Success) {
+                            location.reload();
+                        } else {
+                            alert(res.msg);  // <-- hiện thông báo ở đây
+                        }
+                    },
+                    error: function () {
+                        alert("Có lỗi khi gửi yêu cầu cập nhật!");
+                    }
+                });
+            });
+        });
+    </script>
+}

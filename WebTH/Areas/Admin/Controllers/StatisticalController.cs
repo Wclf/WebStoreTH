@@ -109,80 +109,94 @@ namespace WebTH.Areas.Admin.Controllers
             return Json(new { Data = result }, JsonRequestBehavior.AllowGet);
         }
 
-        public ActionResult ExportPdf()
+        public ActionResult ExportPdf(string selectedDate)
         {
             try
             {
-                // Truy vấn dữ liệu
-                var query = from o in db.Orders
-                            join od in db.OrderDetails
-                            on o.Id equals od.OrderId
-                            join p in db.Products
-                            on od.ProductId equals p.Id
+                DateTime dateFilter;
+                if (!DateTime.TryParseExact(selectedDate, "yyyy-MM-dd", CultureInfo.InvariantCulture, DateTimeStyles.None, out dateFilter))
+                {
+                    return Content("Định dạng ngày không hợp lệ.");
+                }
+
+                // Doanh thu trong ngày
+                var data = (from o in db.Orders
+                            join od in db.OrderDetails on o.Id equals od.OrderId
+                            join p in db.Products on od.ProductId equals p.Id
+                            where DbFunctions.TruncateTime(o.CreatedDate) == dateFilter.Date
                             select new
                             {
-                                CreatedDate = o.CreatedDate,
-                                Quantity = od.Quantity,
-                                Price = od.Price,
-                                OriginalPrice = p.OriginalPrice
-                            };
+                                o.CreatedDate,
+                                od.Quantity,
+                                od.Price,
+                                p.OriginalPrice
+                            }).ToList();
 
-                var result = query.ToList()
-                    .GroupBy(x => x.CreatedDate.Date)
-                    .Select(g => new WebTH.Models.StatisticalViewModel
+                var statistical = new List<StatisticalViewModel>();
+                if (data.Any())
+                {
+                    var group = data.GroupBy(x => x.CreatedDate.Date).First();
+                    statistical.Add(new StatisticalViewModel
                     {
-                        Date = g.Key.ToString("dd/MM/yyyy"),
-                        DoanhThu = g.Sum(x => x.Quantity * x.Price),
-                        LoiNhuan = g.Sum(x => x.Quantity * x.Price) - g.Sum(x => x.Quantity * x.OriginalPrice)
-                    })
-                    .OrderBy(x => DateTime.ParseExact(x.Date, "dd/MM/yyyy", CultureInfo.InvariantCulture))
-                    .ToList();
+                        Date = group.Key.ToString("dd/MM/yyyy"),
+                        DoanhThu = group.Sum(x => x.Quantity * x.Price),
+                        LoiNhuan = group.Sum(x => x.Quantity * (x.Price - x.OriginalPrice))
+                    });
+                }
 
-                // Sử dụng StringWriter để lấy nội dung HTML từ view
+                // Sản phẩm còn trong kho
+                var productsInStock = db.Products
+                    .Where(p => p.Quantity > 0)
+                    .Select(p => new ProductInStockViewModel
+                    {
+                        Title = p.Title,
+                        Quantity = p.Quantity,
+                        Price = p.Price,
+                        PriceSale = p.PriceSale
+                    }).ToList();
+
+                // Tạo HTML bằng Razor view
+                var model = new ExportReportViewModel
+                {
+                    Statistics = statistical,
+                    ProductsInStock = productsInStock
+                };
+
                 string htmlContent = "";
                 using (StringWriter sw = new StringWriter())
                 {
-                    // Render view to string
-                    ViewEngineResult viewResult = ViewEngines.Engines.FindPartialView(ControllerContext,
-                        "~/Areas/Admin/Views/Statistical/_ExportStatisticalPdf.cshtml");
-                    ViewContext viewContext = new ViewContext(ControllerContext, viewResult.View,
-                        new ViewDataDictionary(result), new TempDataDictionary(), sw);
+                    var viewResult = ViewEngines.Engines.FindPartialView(ControllerContext, "~/Areas/Admin/Views/Statistical/_ExportStatisticalPdf.cshtml");
+                    var viewContext = new ViewContext(ControllerContext, viewResult.View, new ViewDataDictionary(model), new TempDataDictionary(), sw);
                     viewResult.View.Render(viewContext, sw);
                     htmlContent = sw.ToString();
                 }
 
-                // Tạo thư mục nếu chưa tồn tại
-                string pdfDirectory = Server.MapPath("~/Resource/Pdf");
-                if (!Directory.Exists(pdfDirectory))
-                {
-                    Directory.CreateDirectory(pdfDirectory);
-                }
+                string folderPath = Server.MapPath("~/Resource/Pdf");
+                if (!Directory.Exists(folderPath)) Directory.CreateDirectory(folderPath);
 
-                // Tạo tên file
-                string fileName = "ViewToPdf_" + DateTime.Now.Ticks + ".pdf";
-                string pathFile = Path.Combine(pdfDirectory, fileName);
+                string fileName = "BaoCao_" + DateTime.Now.Ticks + ".pdf";
+                string filePath = Path.Combine(folderPath, fileName);
 
-                // Tạo document với iTextSharp
                 using (Document document = new Document(PageSize.A4, 50, 50, 50, 50))
                 {
-                    PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(pathFile, FileMode.Create));
+                    PdfWriter writer = PdfWriter.GetInstance(document, new FileStream(filePath, FileMode.Create));
                     document.Open();
-
-                    // Parse HTML (nếu HTML đơn giản có thể dùng HTMLWorker, nếu phức tạp nên dùng XMLWorker)
                     using (StringReader sr = new StringReader(htmlContent))
                     {
                         XMLWorkerHelper.GetInstance().ParseXHtml(writer, document, sr);
                     }
-
                     document.Close();
                 }
 
-                return File(pathFile, "application/pdf", fileName);
+                return File(filePath, "application/pdf", fileName);
             }
             catch (Exception ex)
             {
-                return Json(new { success = false, message = ex.Message, stackTrace = ex.StackTrace }, JsonRequestBehavior.AllowGet);
+                return Content("Lỗi khi xuất PDF: " + ex.Message);
             }
         }
+
+
+
     }
 }
